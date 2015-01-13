@@ -1,2 +1,2 @@
-# easy-swipebox
-This Wordpress plugin enable &lt;a href="http://brutaldesign.github.io/swipebox/">SwipeBox jQuery extension&lt;/a> on all links to image or Video (Youtube / Vimeo).
+# Easy Swipebox (Wordpress Plugin)
+This Wordpress plugin enable [SwipeBox jQuery extension](http://brutaldesign.github.io/swipebox/ "SwipeBox jQuery extension") on all links to image or Video (Youtube / Vimeo).
