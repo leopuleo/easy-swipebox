@@ -10,10 +10,12 @@
 		$('a[href*="youtube.com"]').addClass('swipebox-video');
 		$('a[href*="vimeo.com"]').addClass('swipebox-video');
 
-		// Add img alt attirbute as title attribute to links 
+		// If link has not title, add img alt as title to links
 		$('a.swipebox').filter(function(){
 			var title_img = $(this).find('img').attr('alt');
-			$(this).attr('title', title_img);
+			if ($(this).not("[title]")){
+				$(this).attr('title', title_img);
+			}
 		});
 
 		// Add SwipeBox Script
