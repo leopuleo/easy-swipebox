@@ -1,63 +1,177 @@
 <?php
+
 /**
  * Easy SwipeBox Class
  */
-class easySwipeBox {
+class easySwipeBox
+{
+    
+    /***********************
+    REGISTER SCRIPTS
+    ***********************/
+    public static function easySwipeBox_register_scripts() {
+        
+        if (is_admin()) return;
+        
+        // first get rid of previously registered variants of jquery.swipebox by other plugins or themes
+        wp_deregister_script('swipebox');
+        wp_deregister_script('jquery.swipebox');
+        wp_deregister_script('jquery_swipebox');
+        wp_deregister_script('jquery-swipebox');
+        
+        // register main swipebox script
+        if (defined('WP_DEBUG') && true == WP_DEBUG) {
+        	wp_register_script('jquery-swipebox', EASY_SWIPEBOX_PLUGINURL . 'assets/js/jquery.swipebox.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
+        } else { 
+        	wp_register_script('jquery-swipebox', EASY_SWIPEBOX_PLUGINURL . 'assets/js/jquery.swipebox.min.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
+        }
 
-	/***********************
-	    REGISTER SCRIPTS
-	 ***********************/
+        // Register Swipebox Init + Autodetect scripts
+        wp_register_script('jquery-swipebox-init', EASY_SWIPEBOX_PLUGINURL . 'assets/js/jquery.init.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
+        wp_register_script('jquery-autodetect-swipebox-image', EASY_SWIPEBOX_PLUGINURL . 'assets/js/jquery.init.image.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
+        wp_register_script('jquery-autodetect-swipebox-video', EASY_SWIPEBOX_PLUGINURL . 'assets/js/jquery.init.video.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
+    }
+    public static function easySwipeBox_enqueue_scripts() {
+        // Enqueue scripts (Swipebox + Init) 
+        wp_enqueue_script('jquery-swipebox');
+        wp_enqueue_script('jquery-swipebox-init');
+    }
 
-	public static function register_scripts() {	
-	
-	    if ( is_admin() ) return;
-	    
-		// first get rid of previously registered variants of jquery.swipebox by other plugins or themes
-		wp_deregister_script('swipebox');
-		wp_deregister_script('jquery.swipebox');
-		wp_deregister_script('jquery_swipebox');
-		wp_deregister_script('jquery-swipebox');
+    public static function easySwipeBox_enqueue_autodetect() {
+        // Set default - On plugin activation all autodetection options value is 1
+        $defaults = array(
+          'image' => 1,
+          'video' => 1,
+        );
 
-		// register main swipebox script
-		if ( defined('WP_DEBUG') && true == WP_DEBUG )
-			wp_register_script('jquery-swipebox', EASY_SWIPEBOX_PLUGINURL.'assets/js/jquery.swipebox.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
-		else
-			wp_register_script('jquery-swipebox', EASY_SWIPEBOX_PLUGINURL.'assets/js/jquery.swipebox.min.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
-	}
+        $easySwipeBox_autodetect = wp_parse_args(get_option('easySwipeBox_autodetect'), $defaults);
 
-	public static function main_script() {
+        // Enqueue autodetect image script
+        if ($easySwipeBox_autodetect['image'] == 1) {
+        	 wp_enqueue_script('jquery-autodetect-swipebox-image');
+        }
 
-		wp_register_script('jquery-swipebox-init', EASY_SWIPEBOX_PLUGINURL.'assets/js/jquery.init.js', array('jquery'), EASY_SWIPEBOX_VERSION, true);
-		
-	}
+        // Enqueue autodetect video script
+        if ($easySwipeBox_autodetect['video'] == 1) {
+        	 wp_enqueue_script('jquery-autodetect-swipebox-video');
+        }
+    }
 
-	public static function enqueue_footer_scripts() {
-		wp_enqueue_script('jquery-swipebox-init');
-		wp_enqueue_script('jquery-swipebox');
-	}
+    /***********************
+    REGISTER STYLES
+    ***********************/
+    public static function easySwipeBox_register_style() {
 
-	public static function enqueue_styles() {
+        // register style
+        wp_dequeue_style('swipebox');
+        wp_dequeue_style('jquery.swipebox');
+        wp_dequeue_style('jquery_swipebox');
+        wp_dequeue_style('jquery-swipebox');
 
-		// register style
-		wp_dequeue_style('swipebox');
-		if ( defined('WP_DEBUG') && true == WP_DEBUG )
-			wp_enqueue_style('swipebox', EASY_SWIPEBOX_PLUGINURL.'assets/css/swipebox.css', false, EASY_SWIPEBOX_VERSION, 'screen');
-		else
-			wp_enqueue_style('swipebox', EASY_SWIPEBOX_PLUGINURL.'assets/css/swipebox.min.css', false, EASY_SWIPEBOX_VERSION, 'screen');
-	}
+        if (defined('WP_DEBUG') && true == WP_DEBUG){
+            wp_enqueue_style('swipebox', EASY_SWIPEBOX_PLUGINURL . 'assets/css/swipebox.css', false, EASY_SWIPEBOX_VERSION, 'screen');
+        } else { 
+            wp_enqueue_style('swipebox', EASY_SWIPEBOX_PLUGINURL . 'assets/css/swipebox.min.css', false, EASY_SWIPEBOX_VERSION, 'screen');
+        }
+    }
+    
+    /**********************
+    ADMIN SETTINGS
+    **********************/
+    public static function easySwipeBox_create_menu() {
+        
+        //create new menu under settings page
+        $page_title = __('Easy SwipeBox Settings', EASY_SWIPEBOX_TEXTDOMAIN);
+        $menu_title = __('Easy SwipeBox', EASY_SWIPEBOX_TEXTDOMAIN);
+        $capability = 'install_plugins';
+        $menu_slug = 'easy-swipebox-settings';
+        $function = 'easySwipeBox_plugin_settings_page';
+        add_submenu_page('options-general.php', $page_title, $menu_title, $capability, $menu_slug, $function);
+        
+        //call register settings function
+        add_action('admin_init', 'register_easySwipeBox_settings');
 
+        function register_easySwipeBox_settings() {
+            
+	        //register autodetect settings
+	        register_setting('easySwipeBox_options', 'easySwipeBox_autodetect');
 
-	/**********************
-	         RUN
-	 **********************/
+        }
 
-	static function run() {
+        // Define autodetect settings page options
+        function easySwipeBox_plugin_settings_page() {
+		?>
+		<div class="wrap">
+		    <h1><?php
+		            _e('Easy SwipeBox Settings', EASY_SWIPEBOX_TEXTDOMAIN); ?></h1>
+		    <form method="post" action="options.php">
+		        <?php
 
-		// HOOKS //
-		add_action('wp_enqueue_scripts', array(__CLASS__, 'enqueue_styles'), 999);
-		add_action('wp_print_scripts', array(__CLASS__, 'main_script'), 999);
-		add_action('wp_print_scripts', array(__CLASS__, 'register_scripts'), 999);
-		add_action('wp_footer', array(__CLASS__, 'enqueue_footer_scripts'));
-	}
+		            settings_fields('easySwipeBox_options');
+		            do_settings_sections('easySwipeBox_options');
 
+                    // Set defaut values
+                    $defaults = array(
+                      'image' => 1,
+                      'video' => 1,
+                    );
+
+                    $easySwipeBox_autodetect = wp_parse_args(get_option('easySwipeBox_autodetect'), $defaults);
+
+				?>
+		        <table class="form-table">
+		        <h3><?php _e('Autodetection', EASY_SWIPEBOX_TEXTDOMAIN); ?></h3>
+		        <p><?php _e('Choose which media you type you want to open with SwipeBox checking the options here below or using the class <code>swipebox</code> for its links.', EASY_SWIPEBOX_TEXTDOMAIN); ?><br>
+				<?php _e('Discover more about <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">Swipebox</a></strong>.', EASY_SWIPEBOX_TEXTDOMAIN); ?>
+				</p>
+		            <tr valign="top">
+		                <th scope="row">
+		                    <?php _e('Media', EASY_SWIPEBOX_TEXTDOMAIN); ?>
+		                </th>
+		                <td>
+		                	<label>
+			                	<input type="hidden" id="hidden_easySwipeBox_autodetect[image]" name="easySwipeBox_autodetect[image]" value="0" />
+			                    <input id="easySwipeBox_autodetect[image]" name="easySwipeBox_autodetect[image]" type="checkbox" value="1" <?php if ($easySwipeBox_autodetect['image'] == 1) echo 'checked="checked"'; ?> />
+			                    <strong><?php _e('Images', EASY_SWIPEBOX_TEXTDOMAIN); ?></strong> 
+			                    <em>(<?php _e('jpg / jpeg / gif / png', EASY_SWIPEBOX_TEXTDOMAIN); ?>)</em>
+			                </label><br>
+		                    
+		                    <label>
+			                    <input type="hidden" id="hidden_easySwipeBox_autodetect[video]" name="easySwipeBox_autodetect[video]" value="0" />
+			                    <input id="easySwipeBox_autodetect[video]" name="easySwipeBox_autodetect[video]" type="checkbox" value="1" <?php if ($easySwipeBox_autodetect['video'] == 1) echo 'checked="checked"'; ?> />
+		                    	<strong><?php  _e('Videos', EASY_SWIPEBOX_TEXTDOMAIN); ?></strong> 
+		                    	<em>(<?php _e('Youtube / Vimeo', EASY_SWIPEBOX_TEXTDOMAIN); ?>)</em>
+		                    </label>
+		                </td>
+		            </tr>
+		        </table>
+
+		        <?php submit_button(); ?>
+		    </form>
+		</div>
+		<?php
+        }
+    }
+    
+    /**********************
+    PLUGIN LIST LINK
+    **********************/
+    public static function easySwipeBox_add_plugin_links($links) {
+        $mylinks = array('<a href="' . admin_url('options-general.php?page=easy-swipebox-settings') . '">Settings</a>',);
+        return array_merge($links, $mylinks);
+    }
+    
+    /**********************
+    RUN
+    **********************/
+    static function run() {
+        
+        // HOOKS //
+        add_action('wp_enqueue_scripts', array(__CLASS__, 'easySwipeBox_register_style'), 999);
+        add_action('wp_print_scripts', array(__CLASS__, 'easySwipeBox_register_scripts'), 999);
+        add_action('wp_footer', array(__CLASS__, 'easySwipeBox_enqueue_autodetect'));
+        add_action('wp_footer', array(__CLASS__, 'easySwipeBox_enqueue_scripts'));
+        add_action('admin_menu', array(__CLASS__, 'easySwipeBox_create_menu'));
+        add_filter('plugin_action_links_' . EASY_SWIPEBOX_PLUGINBASENAME, array(__CLASS__, 'easySwipeBox_add_plugin_links'));
+    }
 }

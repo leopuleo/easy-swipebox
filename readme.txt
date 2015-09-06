@@ -3,8 +3,8 @@ Contributors: LeoPeo
 Donate link: 
 Tags: image, video, gallery, fancybox, swipebox
 Requires at least: 3.0.1
-Tested up to: 4.2
-Stable tag: 0.9.1
+Tested up to: 4.2.2
+Stable tag: 1.0
 License: The MIT License (MIT)
 License URI: http://opensource.org/licenses/MIT
 
@@ -31,6 +31,11 @@ Please, for contributions, issues and questions visit https://github.com/leopule
 
 
 == Changelog ==
+
+= 1.0 =
+* Updated SwipeBox to 1.4.1
+* Bug fix: Added support to UPPERCASE image extension
+* Bug fix: Removed SwipeBox to Youtube User and Channel links
 
 = 0.9.1 =
 * Bug fix: Added JPEG extension support
