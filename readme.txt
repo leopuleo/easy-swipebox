@@ -12,8 +12,21 @@ This plugin enable SwipeBox jQuery extension to all links to image or Video (You
 
 == Description ==
 
-This plugin enable SwipeBox jQuery extension to all links to image or Video (Youtube / Vimeo).
-Please, for contributions, issues and questions visit https://github.com/leopuleo/easy-swipebox
+Easy SwipeBox plugin for WordPress websites gives you a flexible, aesthetic and mobile-friendly Lightbox solution for just about all media links on your website. Easy FancyBox uses the packed [Easy SwipeBox](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin) and is WP 3+ multisite compatible. 
+
+= Activation =
+
+After activation you find a new admin page (Settings > Easy SwipeBox) where you can manage the plugin options.
+All links to JPG / GIF / PNG images and Youtube / Vimeo are automatically opened in the mobile-friendly Lightbox that floats over the web page.
+
+= Autodetection =
+
+Select one or more options, Easy SwipeBox automatically detects the media type and add class="swipebox" to their links.
+Otherwise, add class="swipebox" yourself to make the magic happen.
+
+= Contribution =
+
+Please, for contributions, issues and questions visit [Github repo](https://github.com/leopuleo/easy-swipebox).
 
 == Installation ==
 
@@ -21,7 +34,10 @@ Please, for contributions, issues and questions visit https://github.com/leopule
 1. Upload the plugin folder in `/plugins/`. 
 1. Activate the plugin.
 
-Done! Now all link to image or Youtube/Vimeo opens in a beautiful touch/swipe lightbox.
+Done! Now all link to image or Youtube/Vimeo opens in a beautiful mobile-friendly Lightbox.
+Visit the new admin page (Settings > Easy SwipeBox) to deactivate the autodetection for the selected media types. Even without any media type selected for the autodetection, you can add class="swipebox" yourself to make the magic happen. 
+
+
 
 == Frequently Asked Questions ==
 
@@ -33,9 +49,10 @@ Please, for contributions, issues and questions visit https://github.com/leopule
 == Changelog ==
 
 = 1.0 =
-* Updated SwipeBox to 1.4.1
+* Updated Jquery SwipeBox to 1.4.1
 * Bug fix: Added support to UPPERCASE image extension
-* Bug fix: Removed SwipeBox to Youtube User and Channel links
+* Bug fix: Removed SwipeBox support to Youtube/Vimeo User and Channel links
+* New feature: Admin page for autodetection settings
 
 = 0.9.1 =
 * Bug fix: Added JPEG extension support
