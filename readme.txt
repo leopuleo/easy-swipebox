@@ -35,7 +35,7 @@ Please, for contributions, issues and questions visit [Github repo](https://gith
 1. Activate the plugin.
 
 Done! Now all link to image or Youtube/Vimeo opens in a beautiful mobile-friendly Lightbox.
-Visit the new admin page (Settings > Easy SwipeBox) to deactivate the autodetection for the selected media types. Even without any media type selected for the autodetection, you can add class="swipebox" yourself to make the magic happen. 
+Visit the new admin page (Settings > Easy SwipeBox) to enable/disable the autodetection for selected media type.
 
 
 
@@ -49,10 +49,10 @@ Please, for contributions, issues and questions visit https://github.com/leopule
 == Changelog ==
 
 = 1.0 =
-* Updated Jquery SwipeBox to 1.4.1
+* Updated SwipeBox to 1.4.1
 * Bug fix: Added support to UPPERCASE image extension
-* Bug fix: Removed SwipeBox support to Youtube/Vimeo User and Channel links
-* New feature: Admin page for autodetection settings
+* Bug fix: Removed SwipeBox to Youtube User and Channel links
+* New feature: Added admin page for autodetection settings.
 
 = 0.9.1 =
 * Bug fix: Added JPEG extension support
