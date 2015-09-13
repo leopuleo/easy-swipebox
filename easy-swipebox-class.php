@@ -119,10 +119,23 @@ class easySwipeBox
                     $easySwipeBox_autodetect = wp_parse_args(get_option('easySwipeBox_autodetect'), $defaults);
 
 				?>
+
+
+                <p><?php _e('The options in this section are provided by the plugin <strong>Easy Swipebox</strong> and determines the Media Lightbox behaviour controlled by <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox</a></strong>.
+', EASY_SWIPEBOX_TEXTDOMAIN); ?><br>
+                <?php _e('Please, for contributions, issues or questions visit the <strong><a href="https://github.com/leopuleo/easy-swipebox" target="_blank">Github Repo</a></strong>.', EASY_SWIPEBOX_TEXTDOMAIN); ?>
+                 
+                <h3><?php _e('Plugin main features', EASY_SWIPEBOX_TEXTDOMAIN); ?></h3>
+                <ol>
+                <li><?php _e('Enqueuing of SwipeBox Javascript and CSS files. Set <code>WP_DEBUG</code> to true for the uncompressed files.', EASY_SWIPEBOX_TEXTDOMAIN); ?></li>
+                <li><?php _e('Autodetection of links to images or videos. You can exclude/include media types from the autodetection section here below.', EASY_SWIPEBOX_TEXTDOMAIN); ?></li>
+                </ol>
+
 		        <table class="form-table">
 		        <h3><?php _e('Autodetection', EASY_SWIPEBOX_TEXTDOMAIN); ?></h3>
-		        <p><?php _e('Choose which media you type you want to open with SwipeBox checking the options here below or using the class <code>swipebox</code> for its links.', EASY_SWIPEBOX_TEXTDOMAIN); ?><br>
-				<?php _e('Discover more about <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">Swipebox</a></strong>.', EASY_SWIPEBOX_TEXTDOMAIN); ?>
+		        <p><?php _e('Select one or more options, <strong>Easy SwipeBox</strong> automatically detects the media type and add <code>class="swipebox"</code> to their links.', EASY_SWIPEBOX_TEXTDOMAIN); ?><br>
+                <?php _e('Otherwise, add <code>class="swipebox"</code> yourself to make the magic happen.', EASY_SWIPEBOX_TEXTDOMAIN); ?><br>
+                <?php _e('By default, <strong>Easy SwipeBox</strong> detects automatically links to <strong>images</strong> (jpg / jpeg / gif / png) and <strong>videos</strong> (Youtube / Vimeo).', EASY_SWIPEBOX_TEXTDOMAIN); ?><br>
 				</p>
 		            <tr valign="top">
 		                <th scope="row">
@@ -157,7 +170,7 @@ class easySwipeBox
     PLUGIN LIST LINK
     **********************/
     public static function easySwipeBox_add_plugin_links($links) {
-        $mylinks = array('<a href="' . admin_url('options-general.php?page=easy-swipebox-settings') . '">Settings</a>',);
+        $mylinks = array('<a href="' . admin_url('options-general.php?page=easy-swipebox-settings') . '">' . __('Settings', EASY_SWIPEBOX_TEXTDOMAIN) . '</a>',);
         return array_merge($links, $mylinks);
     }
     

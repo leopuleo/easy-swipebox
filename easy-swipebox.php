@@ -4,7 +4,7 @@ Plugin Name: Easy SwipeBox
 Plugin URI: https://github.com/leopuleo
 Description: This plugin enable <a href="http://brutaldesign.github.io/swipebox/">SwipeBox jQuery extension</a> on all links to image or Video (Youtube / Vimeo).
 Text Domain: easy-swipebox
-Domain Path: language
+Domain Path: languages
 Version: 1.0
 Author: Leonardo Giacone
 Author URI: https://github.com/leopuleo
@@ -42,6 +42,7 @@ define( 'EASY_SWIPEBOX_VERSION', '1.0' );
 define( 'SWIPEBOX_VERSION', '1.4.1' );
 define( 'EASY_SWIPEBOX_PLUGINBASENAME', plugin_basename(__FILE__) );
 define( 'EASY_SWIPEBOX_PLUGINFILE', basename(__FILE__) );
+define('EASY_SWIPEBOX_I18N_DOMAIN', 'easy-swipebox');
 
 // Check if easy-swipebox.php is moved one dir up like in WPMU's /mu-plugins/
 // or if plugins_url() returns the main plugins dir location as it does on 
@@ -55,6 +56,8 @@ else
 define( 'EASY_SWIPEBOX_PLUGINDIR', dirname(__FILE__) . '/' . EASY_SWIPEBOX_SUBDIR );
 define( 'EASY_SWIPEBOX_PLUGINURL', plugins_url( '/' . EASY_SWIPEBOX_SUBDIR, __FILE__ ) );
 define( 'EASY_SWIPEBOX_TEXTDOMAIN', 'easy-swipebox' );
+
+load_plugin_textdomain(EASY_SWIPEBOX_I18N_DOMAIN, EASY_SWIPEBOX_PLUGINBASENAME . 'languages', 'easy-swipebox/languages');
 
 /**************
  *   CLASS
