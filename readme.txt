@@ -56,6 +56,7 @@ Note: this plugin use SwipeBox jQuery plugin as Lightbox solution. For any issue
 
 = 1.0.1 =
 * Bug fix: better image format detection (jpg -> .jpg). Thanks to [jas8522](https://github.com/jas8522)
+* Updated readme.txt
 
 = 1.0 =
 * Updated SwipeBox to 1.4.1
