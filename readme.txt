@@ -3,8 +3,8 @@ Contributors: LeoPeo
 Donate link: 
 Tags: image, video, gallery, fancybox, swipebox
 Requires at least: 3.0.1
-Tested up to: 4.3
-Stable tag: 1.0
+Tested up to: 4.3.1
+Stable tag: 1.0.1
 License: The MIT License (MIT)
 License URI: http://opensource.org/licenses/MIT
 
@@ -12,7 +12,7 @@ This plugin enable SwipeBox jQuery extension to all links to image or Video (You
 
 == Description ==
 
-Easy SwipeBox plugin for WordPress websites gives you a flexible, aesthetic and mobile-friendly Lightbox solution for just about all media links on your website. Easy FancyBox uses the packed [Easy SwipeBox](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin) and is WP 3+ multisite compatible. 
+Easy SwipeBox plugin for WordPress websites gives you a flexible, aesthetic and mobile-friendly Lightbox solution for just about all media links on your website. Easy SwipeBox uses the packed [Easy SwipeBox](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin) and is WP 3+ multisite compatible. 
 
 = Activation =
 
@@ -28,6 +28,9 @@ Otherwise, add class="swipebox" yourself to make the magic happen.
 
 Please, for contributions, issues and questions visit [Github repo](https://github.com/leopuleo/easy-swipebox).
 
+Note: this plugin use SwipeBox jQuery plugin as Lightbox solution. For any issues and pull requests related to SwipeBox functionalities please visit the [SwipeBox Repo](https://github.com/brutaldesign/swipebox).
+
+
 == Installation ==
 
 1. Download the plugin from Wordpress repository.
@@ -41,12 +44,18 @@ Visit the new admin page (Settings > Easy SwipeBox) to enable/disable the autode
 
 == Frequently Asked Questions ==
 
-Please, for contributions, issues and questions visit https://github.com/leopuleo/easy-swipebox
+Please, for contributions, issues and questions visit [Github repo](https://github.com/leopuleo/easy-swipebox).
+
+Note: this plugin use SwipeBox jQuery plugin as Lightbox solution. For any issues and pull requests related to SwipeBox functionalities please visit the [SwipeBox Repo](https://github.com/brutaldesign/swipebox).
+
 
 == Screenshots ==
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Bug fix: better image format detection (jpg -> .jpg). Thanks to [jas8522](https://github.com/jas8522)
 
 = 1.0 =
 * Updated SwipeBox to 1.4.1

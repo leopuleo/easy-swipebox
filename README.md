@@ -3,7 +3,7 @@ This Wordpress plugin enable SwipeBox jQuery extension to all links to image or 
 
 ## Description
 
-Easy SwipeBox plugin for WordPress websites gives you a flexible, aesthetic and mobile-friendly Lightbox solution for just about all media links on your website. Easy FancyBox uses the packed [Easy SwipeBox](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin) and is WP 3+ multisite compatible. 
+Easy SwipeBox plugin for WordPress websites gives you a flexible, aesthetic and mobile-friendly Lightbox solution for just about all media links on your website. Easy SwipeBox uses the packed [SwipeBox](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin) and is WP 3+ multisite compatible. 
 
 ## Activation
 
@@ -18,3 +18,5 @@ Otherwise, add class="swipebox" yourself to make the magic happen.
 ## Contribution
 
 Please, for contributions, issues and questions visit [Github repo](https://github.com/leopuleo/easy-swipebox).
+
+Note: this plugin use SwipeBox jQuery plugin as Lightbox solution. For any issues and pull requests related to SwipeBox functionalities please visit the [SwipeBox Repo](https://github.com/brutaldesign/swipebox).
