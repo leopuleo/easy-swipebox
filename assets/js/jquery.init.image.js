@@ -3,7 +3,7 @@
 
 		// Add class .swipebox to all links to images
 		$('a[href]').filter(function() {
-			return /(jpg|jpeg|gif|png)/i.test( $(this).attr('href'))
+			return /(\.jpg|\.jpeg|\.gif|\.png)/i.test( $(this).attr('href'));
 		}).addClass("swipebox");
 
 		// If link has not title, add img title/alt as title to links
