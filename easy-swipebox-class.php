@@ -181,7 +181,7 @@ class easySwipeBox
         
         // HOOKS //
         add_action('wp_enqueue_scripts', array(__CLASS__, 'easySwipeBox_register_style'), 999);
-        add_action('wp_print_scripts', array(__CLASS__, 'easySwipeBox_register_scripts'), 999);
+        add_action('wp_enqueue_scripts', array(__CLASS__, 'easySwipeBox_register_scripts'), 999);
         add_action('wp_footer', array(__CLASS__, 'easySwipeBox_enqueue_autodetect'));
         add_action('wp_footer', array(__CLASS__, 'easySwipeBox_enqueue_scripts'));
         add_action('admin_menu', array(__CLASS__, 'easySwipeBox_create_menu'));
