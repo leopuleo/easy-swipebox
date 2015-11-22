@@ -4,7 +4,7 @@ Donate link:
 Tags: image, video, gallery, fancybox, swipebox
 Requires at least: 3.0.1
 Tested up to: 4.3.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: The MIT License (MIT)
 License URI: http://opensource.org/licenses/MIT
 
@@ -53,6 +53,9 @@ Note: this plugin use SwipeBox jQuery plugin as Lightbox solution. For any issue
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Bug fix: moved from wp_print_scripts to wp_enqueue_scripts. Better compatibiliy with [Soil plugin](https://github.com/roots/soil) from Roots. Thanks to [Gifford Nowland](https://github.com/gnowland)
 
 = 1.0.1 =
 * Bug fix: better image format detection (jpg -> .jpg). Thanks to [jas8522](https://github.com/jas8522)

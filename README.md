@@ -13,7 +13,7 @@ All links to JPG / GIF / PNG images and Youtube / Vimeo are automatically opened
 ## Autodetection
 
 Select one or more options, Easy SwipeBox automatically detects the media type and add `class="swipebox"` to their links.
-Otherwise, add class="swipebox" yourself to make the magic happen.
+Otherwise, add `class="swipebox"` yourself to make the magic happen.
 
 ## Contribution
 
