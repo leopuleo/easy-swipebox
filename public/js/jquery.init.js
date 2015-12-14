@@ -1,8 +1,6 @@
 ;(function($){
 	$( document ).ready(function() {
 
-		console.log(easySwipeBox_localize_init_var);
-
 		// Add class .swipebox to all links to images - Exclude the ones with no-swipebox class
 		if(easySwipeBox_localize_init_var.autodetect.autodetectImage === true) {
 			$('a[href]').filter(function() {
@@ -27,7 +25,7 @@
 
 		// Add class .swipebox to all links to Vimeo videos - Exclude the ones with no-swipebox class
 		if(easySwipeBox_localize_init_var.autodetect.autodetectVideo === true) {
-		
+
 			$('a[href]').filter(function() {
 				return /(?:www\.)?vimeo.com\/([0-9]+)/i.test( $(this).attr('href')) && !($(this).hasClass(easySwipeBox_localize_init_var.autodetect.autodetectExclude));
 			}).addClass("swipebox swipebox-video");
@@ -38,10 +36,7 @@
 			}).addClass("swipebox swipebox-video");
 		}
 
-		if(easySwipeBox_localize_init_var.gallery.galleryRel === true) {
-			$('.swipebox').attr('rel', easySwipeBox_localize_init_var.gallery.galleryHash);
-		}
-		
+
 		// Add SwipeBox Script
 		$( '.swipebox' ).swipebox( {
 			useCSS : easySwipeBox_localize_init_var.lightbox.useCSS,
@@ -62,6 +57,6 @@
 			queryStringData: {},
 			toggleClassOnLoad: ''
 		} );
-	
+
 	});
 })(jQuery);

@@ -58,7 +58,6 @@ class Easy_SwipeBox {
 
 	protected $options_autodetect;
 	protected $options_lightbox;
-	protected $options_gallery;
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -76,10 +75,10 @@ class Easy_SwipeBox {
 
 		$this->defaults_autodetect = array (
 			'image' => 1,
-	        'video' => 1, 
+	        'video' => 1,
 	        'class_exclude' => 'no-swipebox'
 		);
-		
+
 		$this->defaults_lightbox = array (
 			'useCSS' => 1,
 	      	'useSVG' => 1,
@@ -92,12 +91,7 @@ class Easy_SwipeBox {
 	      	'autoplayVideos' => 0
 		);
 
-		$this->defaults_gallery = array (
-			'gallery_rel' => 0,
-		);
-		
 		$this->options_autodetect = wp_parse_args(get_option('easySwipeBox_autodetect'), $this->defaults_autodetect);
-		$this->options_gallery = wp_parse_args(get_option('easySwipeBox_gallery'), $this->defaults_gallery);
 		$this->options_lightbox = wp_parse_args(get_option('easySwipeBox_lightbox'), $this->defaults_lightbox);
 
 		$this->load_dependencies();
@@ -178,7 +172,7 @@ class Easy_SwipeBox {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Easy_SwipeBox_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_gallery(), $this->get_options_lightbox() );
+		$plugin_admin = new Easy_SwipeBox_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -195,7 +189,7 @@ class Easy_SwipeBox {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Easy_SwipeBox_Public( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_gallery(), $this->get_options_lightbox() );
+		$plugin_public = new Easy_SwipeBox_Public( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -244,10 +238,6 @@ class Easy_SwipeBox {
 
 	public function get_options_autodetect() {
 		return $this->options_autodetect;
-	}
-
-	public function get_options_gallery() {
-		return $this->options_gallery;
 	}
 
 	public function get_options_lightbox() {
