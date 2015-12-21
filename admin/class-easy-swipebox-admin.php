@@ -259,8 +259,8 @@ class Easy_Swipebox_Admin {
 			<p>
 				<?php _e('Select one or more options, <strong>Easy SwipeBox</strong> automatically detects the media type and add <code>class="swipebox"</code> to their links.', $this->plugin_name); ?><br>
             	<?php _e('By default, <strong>Easy SwipeBox</strong> detects automatically links to <strong>images</strong> (jpg / jpeg / gif / png) and <strong>videos</strong> (Youtube / Vimeo).', $this->plugin_name); ?><br><br>
-            	<?php _e('If you like to exclude a single image or video from autodetection enter the class that groups these elements.</code>.', $this->plugin_name); ?><br>
-            	<?php _e('By default, <strong>Easy Swipebox</strong> uses <code>class="no-swipebox"</code>.', $this->plugin_name); ?><br>
+            	<?php _e('If you like to exclude a single image or video from autodetection enter the selector that groups these elements.', $this->plugin_name); ?><br>
+            	<?php _e('By default, <strong>Easy Swipebox</strong> uses <code>.no-swipebox</code>.', $this->plugin_name); ?><br>
 			</p>
 		<?php
 	}
@@ -291,7 +291,7 @@ class Easy_Swipebox_Admin {
 		?>
 		<label>
 			<input id="easySwipeBox_autodetect[class_exclude]" type="text" name="easySwipeBox_autodetect[class_exclude]" value="<?php echo $this->options_autodetect['class_exclude']; ?>" /><br>
-			<em><?php _e('Enter the class that groups the media you would like to exclude from autodetection (Default: <code>no-swipebox</code>).', $this->plugin_name); ?></em>
+			<em><?php _e('Enter the selector that groups the media you would like to exclude from autodetection (Default: <code>.no-swipebox</code>).', $this->plugin_name); ?></em>
 		</label>
 		<?php
 	}
@@ -503,7 +503,7 @@ class Easy_Swipebox_Admin {
         $valid_input['video'] = (bool)( $input['video'] );
 
     if( isset( $input['class_exclude'] ) )
-        $valid_input['class_exclude'] = sanitize_key(( $input['class_exclude'] ));
+        $valid_input['class_exclude'] = sanitize_text_field( $input['class_exclude'] );
 
     return $valid_input;
 	}

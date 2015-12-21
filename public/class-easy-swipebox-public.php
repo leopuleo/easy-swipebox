@@ -156,7 +156,7 @@ class Easy_SwipeBox_Public {
       'autodetect' => array(
       	'autodetectImage' => (bool)$this->options_autodetect['image'],
       	'autodetectVideo' => (bool)$this->options_autodetect['video'],
-      	'autodetectExclude' => sanitize_key($this->options_autodetect['class_exclude'])
+      	'autodetectExclude' => sanitize_text_field($this->options_autodetect['class_exclude'])
       )
     );
     return $localize_var;

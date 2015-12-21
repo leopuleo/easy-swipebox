@@ -4,7 +4,7 @@
 		// Add class .swipebox to all links to images - Exclude the ones with no-swipebox class
 		if(easySwipeBox_localize_init_var.autodetect.autodetectImage === true) {
 			$('a[href]').filter(function() {
-			return /(\.jpg|\.jpeg|\.gif|\.png)/i.test( $(this).attr('href')) && !($(this).hasClass(easySwipeBox_localize_init_var.autodetect.autodetectExclude));
+			return /(\.jpg|\.jpeg|\.gif|\.png)/i.test( $(this).attr('href'));
 			}).addClass("swipebox");
 
 			// If link has not title, add img title/alt as title to links
@@ -27,15 +27,17 @@
 		if(easySwipeBox_localize_init_var.autodetect.autodetectVideo === true) {
 
 			$('a[href]').filter(function() {
-				return /(?:www\.)?vimeo.com\/([0-9]+)/i.test( $(this).attr('href')) && !($(this).hasClass(easySwipeBox_localize_init_var.autodetect.autodetectExclude));
-			}).addClass("swipebox swipebox-video");
+				return /(?:www\.)?vimeo.com\/([0-9]+)/i.test( $(this).attr('href'));
+			}).addClass('swipebox');
 
 			// Add class .swipebox to all links to YouTube videos - Exclude the ones with no-swipebox class
 			$('a[href]').filter(function() {
-				return /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/i.test( $(this).attr('href')) && !($(this).hasClass(easySwipeBox_localize_init_var.autodetect.autodetectExclude));
-			}).addClass("swipebox swipebox-video");
+				return /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/i.test( $(this).attr('href'));
+			}).addClass('swipebox');
 		}
 
+    // Remove SwipeBox class from Autodetect class
+    $(easySwipeBox_localize_init_var.autodetect.autodetectExclude).removeClass('swipebox');
 
 		// Add SwipeBox Script
 		$( '.swipebox' ).swipebox( {
