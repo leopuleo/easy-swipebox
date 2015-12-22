@@ -7,7 +7,7 @@
  * @since           1.1
  * @package         EasySwipeBox
  *
- * @subpackage 		EasySwipeBox/public
+ * @subpackage    EasySwipeBox/public
  */
 
 /**
@@ -17,28 +17,28 @@
  * enqueue the admin-specific stylesheet and JavaScript.
  *
  * @package       EasySwipeBox
- * @subpackage 		EasySwipeBox/public
- * @author     		leopuleo
+ * @subpackage    EasySwipeBox/public
+ * @author        leopuleo
  */
 class Easy_SwipeBox_Public {
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.1
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
+  /**
+   * The ID of this plugin.
+   *
+   * @since    1.1
+   * @access   private
+   * @var      string    $plugin_name    The ID of this plugin.
+   */
+  private $plugin_name;
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.1
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
+  /**
+   * The version of this plugin.
+   *
+   * @since    1.1
+   * @access   private
+   * @var      string    $version    The current version of this plugin.
+   */
+  private $version;
 
   /**
    * Loading the autodetect options
@@ -47,7 +47,7 @@ class Easy_SwipeBox_Public {
    * @access   private
    * @var      array    $options_autodetect    The autodetection options.
    */
-	private $options_autodetect;
+  private $options_autodetect;
 
    /**
    * Loading the lightbox options
@@ -56,9 +56,9 @@ class Easy_SwipeBox_Public {
    * @access   private
    * @var      array    $options_lightbox    The lightbox options.
    */
-	private $options_lightbox;
+  private $options_lightbox;
 
-	/**
+  /**
    * Initialize the class and set its properties.
    *
    * @since    1.1
@@ -67,81 +67,81 @@ class Easy_SwipeBox_Public {
    * @param      string    $options_autodetect       The autodetection options.
    * @param      string    $options_lightbox    The lightbox options.
    */
-	public function __construct( $plugin_name, $version, $options_autodetect, $options_lightbox ) {
+  public function __construct( $plugin_name, $version, $options_autodetect, $options_lightbox ) {
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
-		$this->options_autodetect = $options_autodetect;
-		$this->options_lightbox = $options_lightbox;
+    $this->plugin_name = $plugin_name;
+    $this->version = $version;
+    $this->options_autodetect = $options_autodetect;
+    $this->options_lightbox = $options_lightbox;
 
-	}
+  }
 
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.1
+  /**
+   * Register the stylesheets for the public-facing side of the site.
+   *
+   * @since    1.1
    * @access   private
-	 */
-	public function enqueue_styles() {
+   */
+  public function enqueue_styles() {
 
-		/**
-		 * Dequeue any existing SwipeBox CSS
-		 * Register Plugin CSS:
-		 * unminifiled for development (set WP_DEBUG true)
-		 * minified for production
-		 */
+    /**
+     * Dequeue any existing SwipeBox CSS
+     * Register Plugin CSS:
+     * unminifiled for development (set WP_DEBUG true)
+     * minified for production
+     */
 
-		wp_dequeue_style('swipebox');
+    wp_dequeue_style('swipebox');
     wp_dequeue_style('jquery.swipebox');
     wp_dequeue_style('jquery_swipebox');
     wp_dequeue_style('jquery-swipebox');
 
     if (defined('WP_DEBUG') && true == WP_DEBUG){
-			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/swipebox.css', array(), $this->version, 'all' );
-		} else {
-			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/swipebox.min.css', array(), $this->version, 'all' );
-		}
-	}
+      wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/swipebox.css', array(), $this->version, 'all' );
+    } else {
+      wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/swipebox.min.css', array(), $this->version, 'all' );
+    }
+  }
 
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.1
+  /**
+   * Register the JavaScript for the public-facing side of the site.
+   *
+   * @since    1.1
    * @access   private
-	 */
-	public function enqueue_scripts() {
+   */
+  public function enqueue_scripts() {
 
-		/**
-		 * Register SwipeBox Scripts:
-		 * 1) Core
-		 *    unminifiled for development (set WP_DEBUG true)
-		 *    minified for production
-		 * 2) Custom init
-		 * 3) Autodetect Images
-		 * 4) Autodetect Video
-		 *
-		 */
+    /**
+     * Register SwipeBox Scripts:
+     * 1) Core
+     *    unminifiled for development (set WP_DEBUG true)
+     *    minified for production
+     * 2) Custom init
+     * 3) Autodetect Images
+     * 4) Autodetect Video
+     *
+     */
 
-		if (defined('WP_DEBUG') && true == WP_DEBUG){
-			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jquery.swipebox.js', array( 'jquery' ), $this->version, true);
-		} else {
-			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jquery.swipebox.min.js', array( 'jquery' ), $this->version, true);
-		}
+    if (defined('WP_DEBUG') && true == WP_DEBUG){
+      wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jquery.swipebox.js', array( 'jquery' ), $this->version, true);
+    } else {
+      wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/jquery.swipebox.min.js', array( 'jquery' ), $this->version, true);
+    }
 
     wp_enqueue_script($this->plugin_name .'-init', plugin_dir_url( __FILE__ ) . 'js/jquery.init.js', array( 'jquery' ), $this->version, true);
-		wp_localize_script($this->plugin_name .'-init', 'easySwipeBox_localize_init_var', $this->localize_init_var());
-	}
+    wp_localize_script($this->plugin_name .'-init', 'easySwipeBox_localize_init_var', $this->localize_init_var());
+  }
 
-	/**
-	 * Localize vars for SwipeBox init
-	 * Print vars stored in db and passed to js files
-	 *
-	 * @since    1.1
+  /**
+   * Localize vars for SwipeBox init
+   * Print vars stored in db and passed to js files
+   *
+   * @since    1.1
    * @access   private
-	 */
+   */
 
-	public function localize_init_var() {
-		$localize_var = array(
+  public function localize_init_var() {
+    $localize_var = array(
       'lightbox' => array(
         'useCSS' => (bool)$this->options_lightbox['useCSS'],
         'useSVG' => (bool)$this->options_lightbox['useSVG'],
@@ -154,13 +154,13 @@ class Easy_SwipeBox_Public {
         'autoplayVideos' => (bool)$this->options_lightbox['autoplayVideos']
       ),
       'autodetect' => array(
-      	'autodetectImage' => (bool)$this->options_autodetect['image'],
-      	'autodetectVideo' => (bool)$this->options_autodetect['video'],
-      	'autodetectExclude' => sanitize_text_field($this->options_autodetect['class_exclude'])
+        'autodetectImage' => (bool)$this->options_autodetect['image'],
+        'autodetectVideo' => (bool)$this->options_autodetect['video'],
+        'autodetectExclude' => sanitize_text_field($this->options_autodetect['class_exclude'])
       )
     );
     return $localize_var;
-	}
+  }
 
   /**
    * Sanitize HEX Color
@@ -168,7 +168,7 @@ class Easy_SwipeBox_Public {
    * @since    1.1
    * @access   private
    */
-	private function sanitize_hex_color( $color, $hash = false ) {
+  private function sanitize_hex_color( $color, $hash = false ) {
     // Remove any spaces and special characters before and after the string
     $color = trim( $color );
 
@@ -189,5 +189,5 @@ class Easy_SwipeBox_Public {
     $hex = implode( '', $substr );
 
     return ( ! $hash ) ? $hex : '#' . $hex;
-	}
+  }
 }

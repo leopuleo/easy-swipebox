@@ -22,7 +22,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+  die;
 }
 
 /**
@@ -30,8 +30,8 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-easy-swipebox-activator.php
  */
 function activate_easy_swipebox() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-easy-swipebox-activator.php';
-	Easy_SwipeBox_Activator::activate();
+  require_once plugin_dir_path( __FILE__ ) . 'includes/class-easy-swipebox-activator.php';
+  Easy_SwipeBox_Activator::activate();
 }
 
 /**
@@ -39,8 +39,8 @@ function activate_easy_swipebox() {
  * This action is documented in includes/class-easy-swipebox-deactivator.php
  */
 function deactivate_easy_swipebox() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-easy-swipebox-deactivator.php';
-	Easy_SwipeBox_Deactivator::deactivate();
+  require_once plugin_dir_path( __FILE__ ) . 'includes/class-easy-swipebox-deactivator.php';
+  Easy_SwipeBox_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_easy_swipebox' );
@@ -63,8 +63,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-easy-swipebox.php';
  */
 function run_easy_swipebox() {
 
-	$plugin = new Easy_SwipeBox();
-	$plugin->run();
+  $plugin = new Easy_SwipeBox();
+  $plugin->run();
 
 }
 run_easy_swipebox();

@@ -7,7 +7,7 @@
  * @since           1.1
  * @package         EasySwipeBox
  *
- * @subpackage 		EasySwipeBox/includes
+ * @subpackage    EasySwipeBox/includes
  */
 
 /**
@@ -17,20 +17,20 @@
  *
  * @since           1.1
  * @package         EasySwipeBox
- * @subpackage 		EasySwipeBox/includes
- * @author     		leopuleo
+ * @subpackage    EasySwipeBox/includes
+ * @author        leopuleo
  */
 class Easy_SwipeBox_Deactivator {
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.1
-	 */
-	public static function deactivate() {
+  /**
+   * Short Description. (use period)
+   *
+   * Long Description.
+   *
+   * @since    1.1
+   */
+  public static function deactivate() {
 
-	}
+  }
 
 }
