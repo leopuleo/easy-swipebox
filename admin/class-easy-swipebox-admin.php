@@ -255,7 +255,7 @@ class Easy_Swipebox_Admin {
    * @since    1.1
    * @access   public
    */
-  public function general_section_render(  ) {
+  public function general_section_render() {
     ?>
       <p>
         <?php _e('Select one or more options, <strong>Easy SwipeBox</strong> automatically detects the media type and add <code>class="swipebox"</code> to their links.', $this->plugin_name); ?><br>
@@ -266,7 +266,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function autodetect_image_render(  ) {
+  public function autodetect_image_render() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_autodetect[image]" name="easySwipeBox_autodetect[image]" value="0" />
@@ -277,7 +277,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function autodetect_video_render(  ) {
+  public function autodetect_video_render() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_autodetect[video]" name="easySwipeBox_autodetect[video]" value="0" />
@@ -288,7 +288,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function autodetect_exclude_render(  ) {
+  public function autodetect_exclude_render() {
     ?>
     <label>
       <input id="easySwipeBox_autodetect[class_exclude]" type="text" name="easySwipeBox_autodetect[class_exclude]" value="<?php echo $this->options_autodetect['class_exclude']; ?>" /><br>
@@ -298,14 +298,14 @@ class Easy_Swipebox_Admin {
   }
 
   // Section: Lightbox Settings
-  public function lightbox_section_render(  ) {
+  public function lightbox_section_render() {
     ?>
       <p><?php _e('In this page you can customize the Swipebox lightbox behaviour. Discover more about <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox options</a></strong>.', $this->plugin_name); ?><br>
       </p>
     <?php
   }
 
-  public function animation_render(  ) {
+  public function animation_render() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[useCSS]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="1" <?php if ($this->options_lightbox['useCSS'] == 1) echo 'checked="checked"'; ?> /><?php _e('CSS', $this->plugin_name); ?>
@@ -315,7 +315,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function svg_render(  ) {
+  public function svg_render() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[useSVG]" name="easySwipeBox_lightbox[useSVG]" value="0" />
@@ -326,7 +326,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function remove_navigation_mobile_render(  ) {
+  public function remove_navigation_mobile_render() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[removeBarsOnMobile]" name="easySwipeBox_lightbox[removeBarsOnMobile]" value="0" />
@@ -337,7 +337,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function remove_close_button_mobile_render(  ) {
+  public function remove_close_button_mobile_render() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[hideCloseButtonOnMobile]" name="easySwipeBox_lightbox[hideCloseButtonOnMobile]" value="0" />
@@ -348,7 +348,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function hide_bars_delay_render(  ) {
+  public function hide_bars_delay_render() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[hideBarsDelay]" type="number" name="easySwipeBox_lightbox[hideBarsDelay]" value="<?php echo $this->options_lightbox['hideBarsDelay'];?>" />
@@ -358,7 +358,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function video_max_width_render(  ) {
+  public function video_max_width_render() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[videoMaxWidth]" type='number' name='easySwipeBox_lightbox[videoMaxWidth]' value="<?php echo $this->options_lightbox['videoMaxWidth'];?>" />
@@ -368,7 +368,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function vimeo_color_render(  ) {
+  public function vimeo_color_render() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[vimeoColor]" class="color-field" type='text' name='easySwipeBox_lightbox[vimeoColor]' value="<?php echo empty($this->options_lightbox['vimeoColor']) ? '#cccccc' : $this->options_lightbox['vimeoColor'];?>" /><br>
@@ -377,7 +377,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function loop_at_end_render(  ) {
+  public function loop_at_end_render() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[loopAtEnd]" name="easySwipeBox_lightbox[loopAtEnd]" value="0" />
@@ -388,7 +388,7 @@ class Easy_Swipebox_Admin {
     <?php
   }
 
-  public function autoplay_videos_render(  ) {
+  public function autoplay_videos_render() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[autoplayVideos]" name="easySwipeBox_lightbox[autoplayVideos]" value="0" />
@@ -400,7 +400,7 @@ class Easy_Swipebox_Admin {
   }
 
   // Section: Overview
-  public function description_section_render(  ) {
+  public function description_section_render() {
     ?>
       <p><?php _e('The options in this section are provided by the plugin <strong>Easy Swipebox</strong> and determines the Media Lightbox behaviour controlled by <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox</a></strong>.
 ', $this->plugin_name); ?></p>
@@ -437,7 +437,7 @@ class Easy_Swipebox_Admin {
    * @since    1.1
    * @access   public
    */
-  public function easySwipeBox_plugin_settings_page(  ) {
+  public function easySwipeBox_plugin_settings_page() {
 
     ?>
     <form method="post" action="options.php">
@@ -445,8 +445,8 @@ class Easy_Swipebox_Admin {
       <h2><?php _e('Easy SwipeBox Settings', $this->plugin_name); ?></h2>
 
       <?php
-            if( isset( $_GET[ 'tab' ] ) ){
-                $active_tab = $_GET[ 'tab' ];
+            if(isset($_GET['tab'])){
+                $active_tab = $_GET['tab'];
             } else {
               $active_tab = 'general_options';
             }
@@ -462,20 +462,20 @@ class Easy_Swipebox_Admin {
 
         switch ($active_tab) {
           case 'general_options':
-            settings_fields( 'easySwipeBox_autodetect' );
-            do_settings_sections( 'easySwipeBox_autodetect' );
+            settings_fields('easySwipeBox_autodetect');
+            do_settings_sections('easySwipeBox_autodetect');
             submit_button();
             break;
 
           case 'lightbox_options':
-            settings_fields( 'easySwipeBox_lightbox' );
-            do_settings_sections( 'easySwipeBox_lightbox' );
+            settings_fields('easySwipeBox_lightbox');
+            do_settings_sections('easySwipeBox_lightbox');
             submit_button();
             break;
 
           case 'overview':
-            settings_fields( 'easySwipeBox_overview' );
-            do_settings_sections( 'easySwipeBox_overview' );
+            settings_fields('easySwipeBox_overview');
+            do_settings_sections('easySwipeBox_overview');
             break;
 
           default:
@@ -494,17 +494,17 @@ class Easy_Swipebox_Admin {
    * @since    1.1
    * @access   public
    */
-  public function sanitize_autodetect( $input ) {
+  public function sanitize_autodetect($input) {
     $valid_input = array();
 
-    if( isset( $input['image'] ) )
-        $valid_input['image'] = (bool)( $input['image'] );
+    if( isset($input['image']))
+        $valid_input['image'] = (bool)($input['image']);
 
-    if( isset( $input['video'] ) )
-        $valid_input['video'] = (bool)( $input['video'] );
+    if( isset( $input['video']))
+        $valid_input['video'] = (bool)($input['video']);
 
-    if( isset( $input['class_exclude'] ) )
-        $valid_input['class_exclude'] = sanitize_text_field( $input['class_exclude'] );
+    if( isset( $input['class_exclude']))
+        $valid_input['class_exclude'] = sanitize_text_field($input['class_exclude']);
 
     return $valid_input;
   }
@@ -515,36 +515,36 @@ class Easy_Swipebox_Admin {
    * @since    1.1
    * @access   public
    */
-  public function sanitize_lightbox( $input ) {
+  public function sanitize_lightbox($input) {
         $valid_input = array();
 
-        if( isset( $input['useCSS'] ) )
-            $valid_input['useCSS'] = (bool)( $input['useCSS'] );
+        if(isset($input['useCSS']))
+            $valid_input['useCSS'] = (bool)($input['useCSS']);
 
-        if( isset( $input['useSVG'] ) )
-            $valid_input['useSVG'] = (bool)( $input['useSVG'] );
+        if(isset($input['useSVG']))
+            $valid_input['useSVG'] = (bool)($input['useSVG']);
 
-        if( isset( $input['removeBarsOnMobile'] ) )
-            $valid_input['removeBarsOnMobile'] = (bool)( $input['removeBarsOnMobile'] );
+        if(isset($input['removeBarsOnMobile']))
+            $valid_input['removeBarsOnMobile'] = (bool)($input['removeBarsOnMobile']);
 
-        if( isset( $input['hideCloseButtonOnMobile'] ) )
-            $valid_input['hideCloseButtonOnMobile'] = (bool)( $input['hideCloseButtonOnMobile'] );
+        if(isset( $input['hideCloseButtonOnMobile']))
+            $valid_input['hideCloseButtonOnMobile'] = (bool)($input['hideCloseButtonOnMobile']);
 
-        if( isset( $input['hideBarsDelay'] ) )
-            $valid_input['hideBarsDelay'] = absint( $input['hideBarsDelay'] );
+        if(isset($input['hideBarsDelay']))
+            $valid_input['hideBarsDelay'] = absint($input['hideBarsDelay']);
 
-        if( isset( $input['videoMaxWidth'] ) )
-            $valid_input['videoMaxWidth'] = absint( $input['videoMaxWidth'] );
+        if(isset($input['videoMaxWidth']))
+            $valid_input['videoMaxWidth'] = absint($input['videoMaxWidth']);
 
-        if( isset( $input['vimeoColor'] ) )
+        if(isset($input['vimeoColor']))
 
-          $vimeo_color = strip_tags( stripslashes( $input['vimeoColor'] ) );
+          $vimeo_color = strip_tags(stripslashes($input['vimeoColor']));
 
           //Check if is a valid hex color
-          if( FALSE === $this->check_color( $vimeo_color ) ) {
+          if(FALSE === $this->check_color( $vimeo_color)) {
 
               // Set the error message
-              add_settings_error( 'easySwipeBox_lightbox', 'easySwipebox_vimeo_error', __('Insert a valid color for Vimeo controllers', $this->plugin_name), 'error' ); // $setting, $code, $message, $type
+              add_settings_error('easySwipeBox_lightbox', 'easySwipebox_vimeo_error', __('Insert a valid color for Vimeo controllers', $this->plugin_name), 'error'); // $setting, $code, $message, $type
 
               // Get the previous valid value
               $valid_input['vimeoColor'] = $this->options_lightbox['vimeoColor'];
@@ -553,11 +553,11 @@ class Easy_Swipebox_Admin {
               $valid_input['vimeoColor'] = $vimeo_color;
         }
 
-        if( isset( $input['loopAtEnd'] ) )
-            $valid_input['loopAtEnd'] = (bool)( $input['loopAtEnd'] );
+        if(isset($input['loopAtEnd']))
+            $valid_input['loopAtEnd'] = (bool)($input['loopAtEnd']);
 
-        if( isset( $input['autoplayVideos'] ) )
-            $valid_input['autoplayVideos'] = (bool)( $input['autoplayVideos'] );
+        if(isset($input['autoplayVideos']))
+            $valid_input['autoplayVideos'] = (bool)($input['autoplayVideos']);
 
         return $valid_input;
   }
@@ -568,9 +568,9 @@ class Easy_Swipebox_Admin {
    * @since    1.1
    * @access   public
    */
-  public function check_color( $value) {
+  public function check_color($value) {
 
-      if ( preg_match( '/^#?(?:[0-9a-f]{3}){1,2}$/i', $value) ) { // if user insert a HEX color with #
+      if (preg_match( '/^#?(?:[0-9a-f]{3}){1,2}$/i', $value) ) { // if user insert a HEX color with #
           return true;
       }
       return false;
