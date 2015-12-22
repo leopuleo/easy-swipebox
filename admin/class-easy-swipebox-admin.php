@@ -57,7 +57,7 @@ class Easy_Swipebox_Admin {
    * @param      string    $options_autodetect       The autodetection options.
    * @param      string    $options_lightbox    The lightbox options.
    */
-  public function __construct( $plugin_name, $version, $options_autodetect, $options_lightbox )  {
+  public function __construct($plugin_name, $version, $options_autodetect, $options_lightbox) {
 
     $this->plugin_name = $plugin_name;
     $this->version = $version;
@@ -73,7 +73,7 @@ class Easy_Swipebox_Admin {
    * @access   public
    */
   public function enqueue_styles() {
-    wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_style('wp-color-picker');
   }
 
   /**
@@ -83,7 +83,7 @@ class Easy_Swipebox_Admin {
    * @access   public
    */
   public function enqueue_scripts() {
-    wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/easy-swipebox-admin.js', array( 'wp-color-picker' ), $this->version, false );
+    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/easy-swipebox-admin.js', array( 'wp-color-picker'), $this->version, false);
   }
 
   /**
@@ -95,11 +95,11 @@ class Easy_Swipebox_Admin {
   public function add_setting_page() {
     add_submenu_page(
       'options-general.php',
-      apply_filters( $this->plugin_name . '-settings-page-title', __( 'Easy SwipeBox Settings', $this->plugin_name )),
+      apply_filters($this->plugin_name . '-settings-page-title', __('Easy SwipeBox Settings', $this->plugin_name)),
       apply_filters($this->plugin_name . '-settings-page-title', __('Easy SwipeBox', $this->plugin_name)),
       'install_plugins',
       $this->plugin_name . '-settings',
-      array( $this, 'easySwipeBox_plugin_settings_page' )
+      array($this, 'easySwipeBox_plugin_settings_page')
     );
   }
 
@@ -119,31 +119,31 @@ class Easy_Swipebox_Admin {
     // Section: General Settings
     add_settings_section(
       'general_section',
-      __( 'Autodetect', $this->plugin_name ),
-      array( $this, 'general_section_render' ),
+      __('Autodetect', $this->plugin_name),
+      array($this, 'general_section_render'),
       'easySwipeBox_autodetect'
     );
 
     // Section: Lightbox Settings
     add_settings_section(
       'lightbox_section',
-      __( 'Lightbox settings', $this->plugin_name ),
-      array( $this, 'lightbox_section_render' ),
+      __('Lightbox settings', $this->plugin_name),
+      array($this, 'lightbox_section_render'),
       'easySwipeBox_lightbox'
     );
 
     // Section: Overview
     add_settings_section(
       'description_section',
-      __( 'Overview', $this->plugin_name ),
-      array( $this, 'description_section_render' ),
+      __('Overview', $this->plugin_name),
+      array($this, 'description_section_render'),
       'easySwipeBox_overview'
     );
 
     // Field: General Settings -> Autodetect Image
     add_settings_field(
       'autodetect_image',
-      __( 'Image links', $this->plugin_name ),
+      __('Image links', $this->plugin_name),
       array( $this, 'autodetect_image_render' ),
       'easySwipeBox_autodetect',
       'general_section'
@@ -152,8 +152,8 @@ class Easy_Swipebox_Admin {
     // Field: General Settings -> Autodetect Video
     add_settings_field(
       'autodetect_video',
-      __( 'Video links', $this->plugin_name ),
-      array( $this, 'autodetect_video_render' ),
+      __('Video links', $this->plugin_name),
+      array($this, 'autodetect_video_render'),
       'easySwipeBox_autodetect',
       'general_section'
     );
@@ -161,8 +161,8 @@ class Easy_Swipebox_Admin {
     // Field: General Settings -> Autodetect Exclude
     add_settings_field(
       'autodetect_exclude',
-      __( 'Exclude links', $this->plugin_name ),
-      array( $this, 'autodetect_exclude_render' ),
+      __('Exclude links', $this->plugin_name),
+      array($this, 'autodetect_exclude_render'),
       'easySwipeBox_autodetect',
       'general_section'
     );
@@ -170,8 +170,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Animation
     add_settings_field(
       'animation',
-      __( 'Animation type', $this->plugin_name ),
-      array( $this, 'animation_render' ),
+      __('Animation type', $this->plugin_name),
+      array($this, 'animation_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -179,8 +179,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> SVG
     add_settings_field(
       'svg',
-      __( 'Use SVG Icons', $this->plugin_name ),
-      array( $this, 'svg_render' ),
+      __('Use SVG Icons', $this->plugin_name),
+      array($this, 'svg_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -188,8 +188,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Navigation Mobile
     add_settings_field(
       'remove_navigation_mobile',
-      __( 'Navigation bar', $this->plugin_name ),
-      array( $this, 'remove_navigation_mobile_render' ),
+      __('Navigation bar', $this->plugin_name),
+      array($this, 'remove_navigation_mobile_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -197,8 +197,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Close Button Mobile
     add_settings_field(
       'remove_close_button_mobile',
-      __( 'Close button', $this->plugin_name ),
-      array( $this, 'remove_close_button_mobile_render' ),
+      __('Close button', $this->plugin_name),
+      array($this, 'remove_close_button_mobile_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -206,8 +206,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Hide Bar Delay
     add_settings_field(
       'hide_bars_delay',
-      __( 'Hide Bars', $this->plugin_name ),
-      array( $this, 'hide_bars_delay_render' ),
+      __('Hide Bars', $this->plugin_name),
+      array($this, 'hide_bars_delay_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -215,8 +215,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Video Max Width
     add_settings_field(
       'video_max_width',
-      __( 'Video max width', $this->plugin_name ),
-      array( $this, 'video_max_width_render' ),
+      __('Video max width', $this->plugin_name),
+      array($this, 'video_max_width_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -224,8 +224,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Vimeo Color
     add_settings_field(
       'vimeo_color',
-      __( 'Vimeo controllers color', $this->plugin_name ),
-      array( $this, 'vimeo_color_render' ),
+      __('Vimeo controllers color', $this->plugin_name),
+      array($this, 'vimeo_color_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -233,8 +233,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Loop at the end
     add_settings_field(
       'loop_at_end',
-      __( 'Loop at the end', $this->plugin_name ),
-      array( $this, 'loop_at_end_render' ),
+      __('Loop at the end', $this->plugin_name),
+      array($this, 'loop_at_end_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -242,8 +242,8 @@ class Easy_Swipebox_Admin {
     // Field: Lightbox Settings -> Autoplay Video
     add_settings_field(
       'autoplay_videos',
-      __( 'Autoplay videos', $this->plugin_name ),
-      array( $this, 'autoplay_videos_render' ),
+      __('Autoplay videos', $this->plugin_name),
+      array($this, 'autoplay_videos_render'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
