@@ -12,6 +12,8 @@ matrix:
     - php: nightly
 
 install:
+  - composer self-update && composer --version
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer global require squizlabs/php_codesniffer
 
 script:
