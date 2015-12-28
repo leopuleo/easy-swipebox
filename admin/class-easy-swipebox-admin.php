@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
  * @subpackage    EasySwipeBox/includes
  * @author        leopuleo
  */
-class Easy_Swipebox_Admin {
+class EasySwipeboxAdmin {
 
   /**
    * The ID of this plugin.
