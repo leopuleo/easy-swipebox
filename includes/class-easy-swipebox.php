@@ -174,12 +174,12 @@ class Easy_SwipeBox {
    */
   private function define_admin_hooks() {
 
-    $plugin_admin = new Easy_SwipeBox_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
+    $plugin_admin = new EasySwipeboxAdmin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
 
-    $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-    $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-    $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_setting_page' );
-    $this->loader->add_action( 'admin_init', $plugin_admin, 'easy_swipebox_settings_init' );
+    $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles' );
+    $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts' );
+    $this->loader->add_action( 'admin_menu', $plugin_admin, 'AddSettingPage' );
+    $this->loader->add_action( 'admin_init', $plugin_admin, 'SettingsInit' );
   }
 
   /**
