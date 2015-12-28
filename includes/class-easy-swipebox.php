@@ -1,5 +1,7 @@
 <?php
 
+namespace EasySwipeBox;
+
 /**
  * The file that defines the core plugin class
  *
@@ -172,7 +174,7 @@ class Easy_SwipeBox {
    */
   private function define_admin_hooks() {
 
-    $plugin_admin = new EasySwipeboxAdmin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
+    $plugin_admin = new Easy_SwipeBox_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
 
     $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
     $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );

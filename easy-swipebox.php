@@ -63,7 +63,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-easy-swipebox.php';
  */
 function run_easy_swipebox() {
 
-  $plugin = new Easy_SwipeBox();
+  $plugin = new EasySwipeBox\Easy_SwipeBox();
   $plugin->run();
 
 }

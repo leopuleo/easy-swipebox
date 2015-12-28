@@ -1,5 +1,7 @@
 <?php
 
+namespace EasySwipeBox;
+
 /**
  * The public-facing functionality of the plugin.
  *

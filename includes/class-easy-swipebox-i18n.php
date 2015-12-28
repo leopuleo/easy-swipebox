@@ -1,5 +1,7 @@
 <?php
 
+namespace EasySwipeBox;
+
 /**
  * Define the internationalization functionality
  *

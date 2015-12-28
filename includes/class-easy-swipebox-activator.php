@@ -1,5 +1,7 @@
 <?php
 
+namespace EasySwipeBox;
+
 /**
  * Fired during plugin activation
  *

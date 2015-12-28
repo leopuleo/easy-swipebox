@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace EasySwipeBox;
 
 if (!defined('ABSPATH')) {
    exit;
