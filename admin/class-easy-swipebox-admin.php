@@ -1,4 +1,7 @@
 <?php
+
+namespace App;
+
 if (!defined('ABSPATH')) {
    exit;
 }
@@ -10,7 +13,7 @@ if (!defined('ABSPATH')) {
  * @subpackage    EasySwipeBox/includes
  * @author        leopuleo
  */
-class EasySwipeboxAdmin {
+class Easy_Swipebox_Admin {
 
   /**
    * The ID of this plugin.
