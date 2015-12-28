@@ -75,7 +75,7 @@ class EasySwipeboxAdmin {
    * @since    1.1
    * @access   public
    */
-  public function EnqueueStyles() {
+  public function enqueueStyles() {
     wp_enqueue_style('wp-color-picker');
   }
 
@@ -85,7 +85,7 @@ class EasySwipeboxAdmin {
    * @since    1.1
    * @access   public
    */
-  public function EnqueueScripts() {
+  public function enqueueScripts() {
     wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/easy-swipebox-admin.js', array( 'wp-color-picker'), $this->version, false);
   }
 
@@ -95,7 +95,7 @@ class EasySwipeboxAdmin {
    * @since    1.1
    * @access   public
    */
-  public function AddSettingPage() {
+  public function addSettingPage() {
     add_submenu_page(
       'options-general.php',
       apply_filters($this->plugin_name . '-settings-page-title', __('Easy SwipeBox Settings', $this->plugin_name)),
@@ -112,7 +112,7 @@ class EasySwipeboxAdmin {
    * @since    1.1
    * @access   public
    */
-  public function SettingsInit() {
+  public function settingsInit() {
 
     // Register Settings
     register_setting('easySwipeBox_autodetect', 'easySwipeBox_autodetect', array($this, 'sanitize_autodetect'));
@@ -123,7 +123,7 @@ class EasySwipeboxAdmin {
     add_settings_section(
       'general_section',
       __('Autodetect', $this->plugin_name),
-      array($this, 'GeneralSectionRender'),
+      array($this, 'generalSectionRender'),
       'easySwipeBox_autodetect'
     );
 
@@ -131,7 +131,7 @@ class EasySwipeboxAdmin {
     add_settings_section(
       'lightbox_section',
       __('Lightbox settings', $this->plugin_name),
-      array($this, 'LightboxSectionRender'),
+      array($this, 'lightboxSectionRender'),
       'easySwipeBox_lightbox'
     );
 
@@ -139,7 +139,7 @@ class EasySwipeboxAdmin {
     add_settings_section(
       'description_section',
       __('Overview', $this->plugin_name),
-      array($this, 'DescriptionSectionRender'),
+      array($this, 'descriptionSectionRender'),
       'easySwipeBox_overview'
     );
 
@@ -147,7 +147,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'autodetect_image',
       __('Image links', $this->plugin_name),
-      array( $this, 'AutodetectImageRender' ),
+      array( $this, 'autodetectImageRender' ),
       'easySwipeBox_autodetect',
       'general_section'
     );
@@ -156,7 +156,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'autodetect_video',
       __('Video links', $this->plugin_name),
-      array($this, 'AutodetectVideoRender'),
+      array($this, 'autodetectVideoRender'),
       'easySwipeBox_autodetect',
       'general_section'
     );
@@ -165,7 +165,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'autodetect_exclude',
       __('Exclude links', $this->plugin_name),
-      array($this, 'AutodetectExcludeRender'),
+      array($this, 'autodetectExcludeRender'),
       'easySwipeBox_autodetect',
       'general_section'
     );
@@ -174,7 +174,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'animation',
       __('Animation type', $this->plugin_name),
-      array($this, 'AnimationRender'),
+      array($this, 'animationRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -183,7 +183,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'svg',
       __('Use SVG Icons', $this->plugin_name),
-      array($this, 'SvgRender'),
+      array($this, 'svgRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -192,7 +192,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'remove_navigation_mobile',
       __('Navigation bar', $this->plugin_name),
-      array($this, 'RemoveNavigationMobileRender'),
+      array($this, 'removeNavigationMobileRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -201,7 +201,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'remove_close_button_mobile',
       __('Close button', $this->plugin_name),
-      array($this, 'RemoveCloseButtonMobileRender'),
+      array($this, 'removeCloseButtonMobileRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -210,7 +210,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'hide_bars_delay',
       __('Hide Bars', $this->plugin_name),
-      array($this, 'HideBarsDelayRender'),
+      array($this, 'hideBarsDelayRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -219,7 +219,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'video_max_width',
       __('Video max width', $this->plugin_name),
-      array($this, 'VideoMaxWidthRender'),
+      array($this, 'videoMaxWidthRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -228,7 +228,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'vimeo_color',
       __('Vimeo controllers color', $this->plugin_name),
-      array($this, 'VimeoColorRender'),
+      array($this, 'vimeoColorRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -237,7 +237,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'loop_at_end',
       __('Loop at the end', $this->plugin_name),
-      array($this, 'LoopAtEndRender'),
+      array($this, 'loopAtEndRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -246,7 +246,7 @@ class EasySwipeboxAdmin {
     add_settings_field(
       'autoplay_videos',
       __('Autoplay videos', $this->plugin_name),
-      array($this, 'AutoplayVideosRender'),
+      array($this, 'autoplayVideosRender'),
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
@@ -258,7 +258,7 @@ class EasySwipeboxAdmin {
    * @since    1.1
    * @access   public
    */
-  public function GeneralSectionRender() {
+  public function generalSectionRender() {
     ?>
       <p>
         <?php _e('Select one or more options, <strong>Easy SwipeBox</strong> automatically detects the media type and add <code>class="swipebox"</code> to their links.', $this->plugin_name); ?><br>
@@ -269,7 +269,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function AutodetectImageRender() {
+  public function autodetectImageRender() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_autodetect[image]" name="easySwipeBox_autodetect[image]" value="0" />
@@ -280,7 +280,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function AutodetectVideoRender() {
+  public function autodetectVideoRender() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_autodetect[video]" name="easySwipeBox_autodetect[video]" value="0" />
@@ -291,7 +291,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function AutodetectExcludeRender() {
+  public function autodetectExcludeRender() {
     ?>
     <label>
       <input id="easySwipeBox_autodetect[class_exclude]" type="text" name="easySwipeBox_autodetect[class_exclude]" value="<?php echo $this->options_autodetect['class_exclude']; ?>" /><br>
@@ -301,14 +301,14 @@ class EasySwipeboxAdmin {
   }
 
   // Section: Lightbox Settings
-  public function LightboxSectionRender() {
+  public function lightboxSectionRender() {
     ?>
       <p><?php _e('In this page you can customize the Swipebox lightbox behaviour. Discover more about <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox options</a></strong>.', $this->plugin_name); ?><br>
       </p>
     <?php
   }
 
-  public function AnimationRender() {
+  public function animationRender() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[useCSS]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="1" <?php if ($this->options_lightbox['useCSS'] == 1) echo 'checked="checked"'; ?> /><?php _e('CSS', $this->plugin_name); ?>
@@ -318,7 +318,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function SvgRender() {
+  public function svgRender() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[useSVG]" name="easySwipeBox_lightbox[useSVG]" value="0" />
@@ -329,7 +329,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function RemoveNavigationMobileRender() {
+  public function removeNavigationMobileRender() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[removeBarsOnMobile]" name="easySwipeBox_lightbox[removeBarsOnMobile]" value="0" />
@@ -340,7 +340,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function RemoveCloseButtonMobileRender() {
+  public function removeCloseButtonMobileRender() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[hideCloseButtonOnMobile]" name="easySwipeBox_lightbox[hideCloseButtonOnMobile]" value="0" />
@@ -351,7 +351,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function HideBarsDelayRender() {
+  public function hideBarsDelayRender() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[hideBarsDelay]" type="number" name="easySwipeBox_lightbox[hideBarsDelay]" value="<?php echo $this->options_lightbox['hideBarsDelay'];?>" />
@@ -361,7 +361,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function VideoMaxWidthRender() {
+  public function videoMaxWidthRender() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[videoMaxWidth]" type='number' name='easySwipeBox_lightbox[videoMaxWidth]' value="<?php echo $this->options_lightbox['videoMaxWidth'];?>" />
@@ -371,7 +371,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function VimeoColorRender() {
+  public function vimeoColorRender() {
     ?>
     <label>
       <input id="easySwipeBox_lightbox[vimeoColor]" class="color-field" type='text' name='easySwipeBox_lightbox[vimeoColor]' value="<?php echo empty($this->options_lightbox['vimeoColor']) ? '#cccccc' : $this->options_lightbox['vimeoColor'];?>" /><br>
@@ -380,7 +380,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function LoopAtEndRender() {
+  public function loopAtEndRender() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[loopAtEnd]" name="easySwipeBox_lightbox[loopAtEnd]" value="0" />
@@ -391,7 +391,7 @@ class EasySwipeboxAdmin {
     <?php
   }
 
-  public function AutoplayVideosRender() {
+  public function autoplayVideosRender() {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[autoplayVideos]" name="easySwipeBox_lightbox[autoplayVideos]" value="0" />
@@ -403,7 +403,7 @@ class EasySwipeboxAdmin {
   }
 
   // Section: Overview
-  public function DescriptionSectionRender() {
+  public function descriptionSectionRender() {
     ?>
       <p><?php _e('The options in this section are provided by the plugin <strong>Easy Swipebox</strong> and determines the Media Lightbox behaviour controlled by <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox</a></strong>.
 ', $this->plugin_name); ?></p>
