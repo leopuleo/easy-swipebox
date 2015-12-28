@@ -274,8 +274,9 @@ class EasySwipeboxAdmin {
     <label>
       <input type="hidden" id="hidden_easySwipeBox_autodetect[image]" name="easySwipeBox_autodetect[image]" value="0" />
       <input id="easySwipeBox_autodetect[image]" type="checkbox" name="easySwipeBox_autodetect[image]" value="1"
-        <?php if ($this->options_autodetect['image'] == 1)
+        <?php if ($this->options_autodetect['image'] == 1) {
           echo 'checked="checked"';
+        }
         ?>
       />
       <?php _e('Add SwipeBox to image links by default', $this->plugin_name); ?>
