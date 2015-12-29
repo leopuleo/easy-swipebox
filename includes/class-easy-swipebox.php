@@ -98,8 +98,8 @@ class EasySwipeBox {
 
     $this->loadDependencies();
     $this->setLocale();
-    $this->define_admin_hooks();
-    $this->define_public_hooks();
+    $this->defineAdminHooks();
+    $this->definePublicHooks();
   }
 
   /**
@@ -159,7 +159,7 @@ class EasySwipeBox {
   private function setLocale() {
 
     $plugin_i18n = new EasySwipeBoxi18n();
-    $plugin_i18n->setDomain($this->get_plugin_name());
+    $plugin_i18n->setDomain($this->getPluginName());
 
     $this->loader->addAction('plugins_loaded', $plugin_i18n, 'loadPluginTextdomain');
 
@@ -172,9 +172,9 @@ class EasySwipeBox {
    * @since    1.0.0
    * @access   private
    */
-  private function define_admin_hooks() {
+  private function defineAdminHooks() {
 
-    $plugin_admin = new EasySwipeboxAdmin($this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox());
+    $plugin_admin = new EasySwipeboxAdmin($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox());
 
     $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles');
     $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts');
@@ -189,9 +189,9 @@ class EasySwipeBox {
    * @since    1.0.0
    * @access   private
    */
-  private function define_public_hooks() {
+  private function definePublicHooks() {
 
-    $plugin_public = new Easy_SwipeBox_Public($this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox());
+    $plugin_public = new Easy_SwipeBox_Public($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox());
 
     $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
     $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
@@ -214,7 +214,7 @@ class EasySwipeBox {
    * @since     1.0.0
    * @return    string    The name of the plugin.
    */
-  public function get_plugin_name() {
+  public function getPluginName() {
     return $this->plugin_name;
   }
 
@@ -224,7 +224,7 @@ class EasySwipeBox {
    * @since     1.0.0
    * @return    Plugin_Name_Loader    Orchestrates the hooks of the plugin.
    */
-  public function get_loader() {
+  public function getLoader() {
     return $this->loader;
   }
 
@@ -234,15 +234,15 @@ class EasySwipeBox {
    * @since     1.0.0
    * @return    string    The version number of the plugin.
    */
-  public function get_version() {
+  public function getVersion() {
     return $this->version;
   }
 
-  public function get_options_autodetect() {
+  public function getOptionsAutodetect() {
     return $this->options_autodetect;
   }
 
-  public function get_options_lightbox() {
+  public function getOptionsLightbox() {
     return $this->options_lightbox;
   }
 }
