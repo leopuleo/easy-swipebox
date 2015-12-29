@@ -191,10 +191,10 @@ class EasySwipeBox {
    */
   private function definePublicHooks() {
 
-    $plugin_public = new Easy_SwipeBox_Public($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox());
+    $plugin_public = new EasySwipeBoxPublic($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox());
 
-    $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-    $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+    $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueStyles');
+    $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueScripts');
 
   }
 
