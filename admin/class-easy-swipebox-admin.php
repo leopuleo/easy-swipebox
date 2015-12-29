@@ -312,8 +312,8 @@ class EasySwipeboxAdmin {
   public function animationRender() {
     ?>
     <label>
-      <input id="easySwipeBox_lightbox[useCSS]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="1" <?php if ($this->options_lightbox['useCSS'] == 1) echo 'checked="checked"'; ?> /><?php _e('CSS', $this->plugin_name); ?>
-      <input id="easySwipeBox_lightbox[useJquery]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="0" <?php if ($this->options_lightbox['useCSS'] == 0) echo 'checked="checked"'; ?> /><?php _e('Jquery', $this->plugin_name); ?><br>
+      <input id="easySwipeBox_lightbox[useCSS]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="1" <?php if ($this->options_lightbox['useCSS'] == 1) {echo 'checked="checked"'}; ?> /><?php _e('CSS', $this->plugin_name); ?>
+      <input id="easySwipeBox_lightbox[useJquery]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="0" <?php if ($this->options_lightbox['useCSS'] == 0) {echo 'checked="checked"'}; ?> /><?php _e('Jquery', $this->plugin_name); ?><br>
       <em><?php _e('Select the method used to render the lightbox. Use Jquery if you are having problems with old browsers (Default: CSS).', $this->plugin_name); ?></em>
     </label>
     <?php
@@ -323,7 +323,7 @@ class EasySwipeboxAdmin {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[useSVG]" name="easySwipeBox_lightbox[useSVG]" value="0" />
-      <input id="easySwipeBox_lightbox[useSVG]" type="checkbox" name="easySwipeBox_lightbox[useSVG]" value="1" <?php if ($this->options_lightbox['useSVG'] == 1) echo 'checked="checked"'; ?> />
+      <input id="easySwipeBox_lightbox[useSVG]" type="checkbox" name="easySwipeBox_lightbox[useSVG]" value="1" <?php if ($this->options_lightbox['useSVG'] == 1) {echo 'checked="checked"'}; ?> />
       <strong><?php _e('Use SVG Icons', $this->plugin_name); ?></strong><br>
       <em><?php _e('Disable this option if you are having problems with navigation icons not visible on some devices (Default: true).', $this->plugin_name); ?></em>
     </label>
@@ -334,7 +334,7 @@ class EasySwipeboxAdmin {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[removeBarsOnMobile]" name="easySwipeBox_lightbox[removeBarsOnMobile]" value="0" />
-      <input id="easySwipeBox_lightbox[removeBarsOnMobile]" type='checkbox' name='easySwipeBox_lightbox[removeBarsOnMobile]' value='1' <?php if ($this->options_lightbox['removeBarsOnMobile'] == 1) echo 'checked="checked"'; ?> />
+      <input id="easySwipeBox_lightbox[removeBarsOnMobile]" type='checkbox' name='easySwipeBox_lightbox[removeBarsOnMobile]' value='1' <?php if ($this->options_lightbox['removeBarsOnMobile'] == 1) {echo 'checked="checked"'}; ?> />
       <strong><?php _e('Hide navigation bar on mobile', $this->plugin_name); ?></strong><br>
       <em><?php _e('Select this options if you like to hide the navigation bar on mobile devices (Default: true).', $this->plugin_name); ?></em>
     </label>
@@ -345,7 +345,7 @@ class EasySwipeboxAdmin {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[hideCloseButtonOnMobile]" name="easySwipeBox_lightbox[hideCloseButtonOnMobile]" value="0" />
-      <input id="easySwipeBox_lightbox[hideCloseButtonOnMobile]" type='checkbox' name='easySwipeBox_lightbox[hideCloseButtonOnMobile]' value='1' <?php if ($this->options_lightbox['hideCloseButtonOnMobile'] == 1) echo 'checked="checked"'; ?> />
+      <input id="easySwipeBox_lightbox[hideCloseButtonOnMobile]" type='checkbox' name='easySwipeBox_lightbox[hideCloseButtonOnMobile]' value='1' <?php if ($this->options_lightbox['hideCloseButtonOnMobile'] == 1) {echo 'checked="checked"'}; ?> />
       <strong><?php _e('Hide close button on mobile', $this->plugin_name); ?></strong><br>
       <em><?php _e('Select this options if you like to hide the close button on mobile devices (Default: true).', $this->plugin_name); ?></em>
     </label>
@@ -385,7 +385,7 @@ class EasySwipeboxAdmin {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[loopAtEnd]" name="easySwipeBox_lightbox[loopAtEnd]" value="0" />
-      <input id="easySwipeBox_lightbox[loopAtEnd]" type="checkbox" name="easySwipeBox_lightbox[loopAtEnd]" value="1" <?php if ($this->options_lightbox['loopAtEnd'] == 'true') echo 'checked="checked"'; ?> />
+      <input id="easySwipeBox_lightbox[loopAtEnd]" type="checkbox" name="easySwipeBox_lightbox[loopAtEnd]" value="1" <?php if ($this->options_lightbox['loopAtEnd'] == 'true') {echo 'checked="checked"'}; ?> />
       <strong><?php _e('Loop', $this->plugin_name); ?></strong><br>
       <em><?php _e('Select this options if you like to loop back to the first image after the last is reached (Default: false).', $this->plugin_name); ?></em>
     </label>
@@ -396,7 +396,7 @@ class EasySwipeboxAdmin {
     ?>
     <label>
       <input type="hidden" id="hidden_easySwipeBox_lightbox[autoplayVideos]" name="easySwipeBox_lightbox[autoplayVideos]" value="0" />
-      <input id="easySwipeBox_lightbox[autoplayVideos]" type='checkbox' name='easySwipeBox_lightbox[autoplayVideos]' value='1' <?php if ($this->options_lightbox['autoplayVideos'] == 1) echo 'checked="checked"'; ?> />
+      <input id="easySwipeBox_lightbox[autoplayVideos]" type='checkbox' name='easySwipeBox_lightbox[autoplayVideos]' value='1' <?php if ($this->options_lightbox['autoplayVideos'] == 1) {echo 'checked="checked"'}; ?> />
       <strong><?php _e('Play video at opening', $this->plugin_name); ?></strong><br>
       <em><?php _e('Select this options if you like to autoplay video at opening (Default: false).', $this->plugin_name); ?></em>
     </label>
