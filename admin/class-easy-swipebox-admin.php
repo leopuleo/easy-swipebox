@@ -449,11 +449,11 @@ class EasySwipeboxAdmin {
       <h2><?php _e('Easy SwipeBox Settings', $this->plugin_name); ?></h2>
 
     <?php
-      if (isset($_GET['tab'])) {
-          $active_tab = $_GET['tab'];
-      } else {
-        $active_tab = 'general_options';
-      }
+    if (isset($_GET['tab'])) {
+        $active_tab = $_GET['tab'];
+    } else {
+      $active_tab = 'general_options';
+    }
     ?>
 
     <h2 class="nav-tab-wrapper">
@@ -463,27 +463,27 @@ class EasySwipeboxAdmin {
     </h2>
 
     <?php
-      switch ($active_tab) {
-        case 'general_options':
-          settings_fields('easySwipeBox_autodetect');
-          do_settings_sections('easySwipeBox_autodetect');
-          submit_button();
-          break;
+    switch ($active_tab) {
+      case 'general_options':
+        settings_fields('easySwipeBox_autodetect');
+        do_settings_sections('easySwipeBox_autodetect');
+        submit_button();
+        break;
 
-        case 'lightbox_options':
-          settings_fields('easySwipeBox_lightbox');
-          do_settings_sections('easySwipeBox_lightbox');
-          submit_button();
-          break;
+      case 'lightbox_options':
+        settings_fields('easySwipeBox_lightbox');
+        do_settings_sections('easySwipeBox_lightbox');
+        submit_button();
+        break;
 
-        case 'overview':
-          settings_fields('easySwipeBox_overview');
-          do_settings_sections('easySwipeBox_overview');
-          break;
+      case 'overview':
+        settings_fields('easySwipeBox_overview');
+        do_settings_sections('easySwipeBox_overview');
+        break;
 
-        default:
-          break;
-      }
+      default:
+        break;
+    }
     ?>
       </div>
     </form>
@@ -499,15 +499,15 @@ class EasySwipeboxAdmin {
   public function sanitizeAutodetect($input) {
     $valid_input = array();
 
-    if(isset($input['image'])) {
+    if (isset($input['image'])) {
       $valid_input['image'] = (bool)($input['image']);
     }
 
-    if(isset( $input['video'])) {
+    if (isset( $input['video'])) {
       $valid_input['video'] = (bool)($input['video']);
     }
 
-    if(isset( $input['class_exclude'])) {
+    if (isset( $input['class_exclude'])) {
       $valid_input['class_exclude'] = sanitize_text_field($input['class_exclude']);
     }
     return $valid_input;
@@ -522,30 +522,30 @@ class EasySwipeboxAdmin {
   public function sanitizeLightbox($input) {
     $valid_input = array();
 
-    if(isset($input['useCSS'])) {
+    if (isset($input['useCSS'])) {
       $valid_input['useCSS'] = (bool)($input['useCSS']);
     }
-    if(isset($input['useSVG'])) {
+    if (isset($input['useSVG'])) {
       $valid_input['useSVG'] = (bool)($input['useSVG']);
     }
-    if(isset($input['removeBarsOnMobile'])) {
+    if (isset($input['removeBarsOnMobile'])) {
       $valid_input['removeBarsOnMobile'] = (bool)($input['removeBarsOnMobile']);
     }
-    if(isset( $input['hideCloseButtonOnMobile'])){
+    if (isset( $input['hideCloseButtonOnMobile'])){
       $valid_input['hideCloseButtonOnMobile'] = (bool)($input['hideCloseButtonOnMobile']);
     }
-    if(isset($input['hideBarsDelay'])) {
+    if (isset($input['hideBarsDelay'])) {
       $valid_input['hideBarsDelay'] = absint($input['hideBarsDelay']);
     }
-    if(isset($input['videoMaxWidth'])) {
+    if (isset($input['videoMaxWidth'])) {
       $valid_input['videoMaxWidth'] = absint($input['videoMaxWidth']);
     }
-    if(isset($input['vimeoColor'])) {
+    if (isset($input['vimeoColor'])) {
 
       $vimeo_color = strip_tags(stripslashes($input['vimeoColor']));
 
       //Check if is a valid hex color
-      if(FALSE === $this->checkColor( $vimeo_color)) {
+      if (FALSE === $this->checkColor( $vimeo_color)) {
 
         // Set the error message
         add_settings_error('easySwipeBox_lightbox', 'easySwipebox_vimeo_error', __('Insert a valid color for Vimeo controllers', $this->plugin_name), 'error'); // $setting, $code, $message, $type
@@ -557,10 +557,10 @@ class EasySwipeboxAdmin {
         $valid_input['vimeoColor'] = $vimeo_color;
       }
 
-    if(isset($input['loopAtEnd'])) {
+    if (isset($input['loopAtEnd'])) {
       $valid_input['loopAtEnd'] = (bool)($input['loopAtEnd']);
     }
-    if(isset($input['autoplayVideos'])) {
+    if (isset($input['autoplayVideos'])) {
       $valid_input['autoplayVideos'] = (bool)($input['autoplayVideos']);
     }
     return $valid_input;
@@ -575,7 +575,7 @@ class EasySwipeboxAdmin {
    */
   public function checkColor($value) {
 
-      if (preg_match( '/^#?(?:[0-9a-f]{3}){1,2}$/i', $value) ) { // if user insert a HEX color with #
+      if (preg_match( '/^#?(?:[0-9a-f]{3}){1,2}$/i', $value)) { // if user insert a HEX color with #
           return true;
       }
       return false;
