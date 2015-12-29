@@ -28,7 +28,7 @@ namespace EasySwipeBox;
  * @subpackage    EasySwipeBox/includes
  * @author        leopuleo
  */
-class Easy_SwipeBox {
+class EasySwipeBox {
 
   /**
    * The loader that's responsible for maintaining and registering all hooks that power
@@ -96,8 +96,8 @@ class Easy_SwipeBox {
     $this->options_autodetect = wp_parse_args(get_option('easySwipeBox_autodetect'), $this->defaults_autodetect);
     $this->options_lightbox = wp_parse_args(get_option('easySwipeBox_lightbox'), $this->defaults_lightbox);
 
-    $this->load_dependencies();
-    $this->set_locale();
+    $this->loadDependencies();
+    $this->setLocale();
     $this->define_admin_hooks();
     $this->define_public_hooks();
   }
@@ -118,30 +118,30 @@ class Easy_SwipeBox {
    * @since    1.0.0
    * @access   private
    */
-  private function load_dependencies() {
+  private function loadDependencies() {
 
     /**
      * The class responsible for orchestrating the actions and filters of the
      * core plugin.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-easy-swipebox-loader.php';
+    require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-easy-swipebox-loader.php';
 
     /**
      * The class responsible for defining internationalization functionality
      * of the plugin.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-easy-swipebox-i18n.php';
+    require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-easy-swipebox-i18n.php';
 
     /**
      * The class responsible for defining all actions that occur in the admin area.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-easy-swipebox-admin.php';
+    require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-easy-swipebox-admin.php';
 
     /**
      * The class responsible for defining all actions that occur in the public-facing
      * side of the site.
      */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-easy-swipebox-public.php';
+    require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-easy-swipebox-public.php';
 
     $this->loader = new EasySwipeboxLoader();
 
@@ -156,12 +156,12 @@ class Easy_SwipeBox {
    * @since    1.0.0
    * @access   private
    */
-  private function set_locale() {
+  private function setLocale() {
 
     $plugin_i18n = new EasySwipeBoxi18n();
-    $plugin_i18n->set_domain( $this->get_plugin_name() );
+    $plugin_i18n->setDomain($this->get_plugin_name());
 
-    $this->loader->addAction( 'plugins_loaded', $plugin_i18n, 'loadPluginTextdomain' );
+    $this->loader->addAction('plugins_loaded', $plugin_i18n, 'loadPluginTextdomain');
 
   }
 
@@ -174,12 +174,12 @@ class Easy_SwipeBox {
    */
   private function define_admin_hooks() {
 
-    $plugin_admin = new EasySwipeboxAdmin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
+    $plugin_admin = new EasySwipeboxAdmin($this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox());
 
-    $this->loader->addAction( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles' );
-    $this->loader->addAction( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts' );
-    $this->loader->addAction( 'admin_menu', $plugin_admin, 'AddSettingPage' );
-    $this->loader->addAction( 'admin_init', $plugin_admin, 'SettingsInit' );
+    $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles');
+    $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts');
+    $this->loader->addAction('admin_menu', $plugin_admin, 'AddSettingPage');
+    $this->loader->addAction('admin_init', $plugin_admin, 'SettingsInit');
   }
 
   /**
@@ -191,10 +191,10 @@ class Easy_SwipeBox {
    */
   private function define_public_hooks() {
 
-    $plugin_public = new Easy_SwipeBox_Public( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
+    $plugin_public = new Easy_SwipeBox_Public($this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox());
 
-    $this->loader->addAction( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-    $this->loader->addAction( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+    $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
+    $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
 
   }
 

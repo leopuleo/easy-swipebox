@@ -58,7 +58,7 @@ class EasySwipeBoxi18n {
    * @since    1.1
    * @param    string    $domain    The domain that represents the locale of this plugin.
    */
-  public function set_domain($domain) {
+  public function setDomain($domain) {
     $this->domain = $domain;
   }
 }
