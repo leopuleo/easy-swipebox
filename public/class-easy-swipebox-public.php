@@ -170,7 +170,7 @@ class EasySwipeBoxPublic {
    * @since    1.1
    * @access   private
    */
-  private function sanitizeHexColor($color, $hash=false) {
+  private function sanitizeHexColor($color, $hash = false) {
     // Remove any spaces and special characters before and after the string
     $color = trim($color);
 
@@ -184,9 +184,9 @@ class EasySwipeBoxPublic {
 
     $substr = array();
     for ($i = 0; $i <= 5; $i++) {
-        $default    = (0 == $i) ? 'F' : ($substr[$i-1]);
+        $default    = (0 == $i) ? 'F' : ($substr[$i - 1]);
         $substr[$i] = substr($color, $i, 1);
-        $substr[$i] = (false === $substr[$i] || !ctype_xdigit( $substr[$i])) ? $default : $substr[$i];
+        $substr[$i] = (false === $substr[$i] || !ctype_xdigit($substr[$i])) ? $default : $substr[$i];
     }
     $hex = implode('', $substr);
 
