@@ -531,7 +531,7 @@ class EasySwipeboxAdmin {
     if (isset($input['removeBarsOnMobile'])) {
       $valid_input['removeBarsOnMobile'] = (bool)($input['removeBarsOnMobile']);
     }
-    if (isset($input['hideCloseButtonOnMobile'])){
+    if (isset($input['hideCloseButtonOnMobile'])) {
       $valid_input['hideCloseButtonOnMobile'] = (bool)($input['hideCloseButtonOnMobile']);
     }
     if (isset($input['hideBarsDelay'])) {
@@ -575,10 +575,9 @@ class EasySwipeboxAdmin {
    */
   public function checkColor($value) {
 
-    if (preg_match( '/^#?(?:[0-9a-f]{3}){1,2}$/i', $value)) { // if user insert a HEX color with #
+    if (preg_match('/^#?(?:[0-9a-f]{3}){1,2}$/i', $value)) { // if user insert a HEX color with #
         return true;
     }
     return false;
   }
-
 }
