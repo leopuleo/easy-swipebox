@@ -143,7 +143,7 @@ class Easy_SwipeBox {
      */
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-easy-swipebox-public.php';
 
-    $this->loader = new Easy_Swipebox_Loader();
+    $this->loader = new EasySwipeboxLoader();
 
   }
 
@@ -158,10 +158,10 @@ class Easy_SwipeBox {
    */
   private function set_locale() {
 
-    $plugin_i18n = new Easy_SwipeBox_i18n();
+    $plugin_i18n = new EasySwipeBoxi18n();
     $plugin_i18n->set_domain( $this->get_plugin_name() );
 
-    $this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+    $this->loader->addAction( 'plugins_loaded', $plugin_i18n, 'loadPluginTextdomain' );
 
   }
 
@@ -176,10 +176,10 @@ class Easy_SwipeBox {
 
     $plugin_admin = new EasySwipeboxAdmin( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
 
-    $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles' );
-    $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts' );
-    $this->loader->add_action( 'admin_menu', $plugin_admin, 'AddSettingPage' );
-    $this->loader->add_action( 'admin_init', $plugin_admin, 'SettingsInit' );
+    $this->loader->addAction( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles' );
+    $this->loader->addAction( 'admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts' );
+    $this->loader->addAction( 'admin_menu', $plugin_admin, 'AddSettingPage' );
+    $this->loader->addAction( 'admin_init', $plugin_admin, 'SettingsInit' );
   }
 
   /**
@@ -193,8 +193,8 @@ class Easy_SwipeBox {
 
     $plugin_public = new Easy_SwipeBox_Public( $this->get_plugin_name(), $this->get_version(), $this->get_options_autodetect(), $this->get_options_lightbox() );
 
-    $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-    $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+    $this->loader->addAction( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+    $this->loader->addAction( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
   }
 

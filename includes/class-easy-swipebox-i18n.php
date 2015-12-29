@@ -26,7 +26,7 @@ namespace EasySwipeBox;
  * @subpackage    EasySwipeBox/includes
  * @author        leopuleo
  */
-class Easy_SwipeBox_i18n {
+class EasySwipeBoxi18n {
 
   /**
    * The domain specified for this plugin.
@@ -42,12 +42,12 @@ class Easy_SwipeBox_i18n {
    *
    * @since    1.1
    */
-  public function load_plugin_textdomain() {
+  public function loadPluginTextdomain() {
 
     load_plugin_textdomain(
       $this->domain,
       false,
-      dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+      dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
     );
 
   }
@@ -58,8 +58,7 @@ class Easy_SwipeBox_i18n {
    * @since    1.1
    * @param    string    $domain    The domain that represents the locale of this plugin.
    */
-  public function set_domain( $domain ) {
+  public function set_domain($domain) {
     $this->domain = $domain;
   }
-
 }

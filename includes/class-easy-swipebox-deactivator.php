@@ -22,7 +22,7 @@ namespace EasySwipeBox;
  * @subpackage    EasySwipeBox/includes
  * @author        leopuleo
  */
-class Easy_SwipeBox_Deactivator {
+class EasySwipeBoxDeactivator {
 
   /**
    * Short Description. (use period)
@@ -34,5 +34,4 @@ class Easy_SwipeBox_Deactivator {
   public static function deactivate() {
 
   }
-
 }

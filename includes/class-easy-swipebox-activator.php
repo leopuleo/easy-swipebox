@@ -22,7 +22,7 @@ namespace EasySwipeBox;
  * @subpackage Plugin_Name/includes
  * @author     Your Name <email@example.com>
  */
-class Easy_SwipeBox_Activator {
+class EasySwipeBoxActivator {
 
   /**
    * Short Description. (use period)
@@ -34,5 +34,4 @@ class Easy_SwipeBox_Activator {
   public static function activate() {
 
   }
-
 }
