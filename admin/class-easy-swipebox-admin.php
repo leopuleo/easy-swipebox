@@ -503,11 +503,11 @@ class EasySwipeboxAdmin {
       $valid_input['image'] = (bool)($input['image']);
     }
 
-    if (isset( $input['video'])) {
+    if (isset($input['video'])) {
       $valid_input['video'] = (bool)($input['video']);
     }
 
-    if (isset( $input['class_exclude'])) {
+    if (isset($input['class_exclude'])) {
       $valid_input['class_exclude'] = sanitize_text_field($input['class_exclude']);
     }
     return $valid_input;
@@ -531,7 +531,7 @@ class EasySwipeboxAdmin {
     if (isset($input['removeBarsOnMobile'])) {
       $valid_input['removeBarsOnMobile'] = (bool)($input['removeBarsOnMobile']);
     }
-    if (isset( $input['hideCloseButtonOnMobile'])){
+    if (isset($input['hideCloseButtonOnMobile'])){
       $valid_input['hideCloseButtonOnMobile'] = (bool)($input['hideCloseButtonOnMobile']);
     }
     if (isset($input['hideBarsDelay'])) {
@@ -545,7 +545,7 @@ class EasySwipeboxAdmin {
       $vimeo_color = strip_tags(stripslashes($input['vimeoColor']));
 
       //Check if is a valid hex color
-      if (FALSE === $this->checkColor( $vimeo_color)) {
+      if (false === $this->checkColor($vimeo_color)) {
 
         // Set the error message
         add_settings_error('easySwipeBox_lightbox', 'easySwipebox_vimeo_error', __('Insert a valid color for Vimeo controllers', $this->plugin_name), 'error'); // $setting, $code, $message, $type
@@ -556,7 +556,7 @@ class EasySwipeboxAdmin {
       } else {
         $valid_input['vimeoColor'] = $vimeo_color;
       }
-
+    }
     if (isset($input['loopAtEnd'])) {
       $valid_input['loopAtEnd'] = (bool)($input['loopAtEnd']);
     }
@@ -565,7 +565,7 @@ class EasySwipeboxAdmin {
     }
     return $valid_input;
   }
-}
+
 
   /**
    * Check if color is a valid HEX.
@@ -575,10 +575,10 @@ class EasySwipeboxAdmin {
    */
   public function checkColor($value) {
 
-      if (preg_match( '/^#?(?:[0-9a-f]{3}){1,2}$/i', $value)) { // if user insert a HEX color with #
-          return true;
-      }
-      return false;
+    if (preg_match( '/^#?(?:[0-9a-f]{3}){1,2}$/i', $value)) { // if user insert a HEX color with #
+        return true;
+    }
+    return false;
   }
 
 }
