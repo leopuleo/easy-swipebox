@@ -1,9 +1,10 @@
 # Easy SwipeBox (Wordpress Plugin)
+[![Build Status](https://travis-ci.org/leopuleo/easy-swipebox.svg?branch=easy-swipebox-1.1)](https://travis-ci.org/leopuleo/easy-swipebox)
 This Wordpress plugin enable SwipeBox jQuery extension to all links to image or Video (Youtube / Vimeo).
 
 ## Description
 
-Easy SwipeBox plugin for WordPress websites gives you a flexible, aesthetic and mobile-friendly Lightbox solution for just about all media links on your website. Easy SwipeBox uses the packed [SwipeBox](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin) and is WP 3+ multisite compatible. 
+Easy SwipeBox plugin for WordPress websites gives you a flexible, aesthetic and mobile-friendly Lightbox solution for just about all media links on your website. Easy SwipeBox uses the packed [SwipeBox](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin) and is WP 3+ multisite compatible.
 
 ## Activation
 
