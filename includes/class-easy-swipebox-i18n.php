@@ -9,10 +9,10 @@ namespace EasySwipeBox;
  * so that it is ready for translation.
  *
  * @link            https://github.com/leopuleo/easy-swipebox
- * @since           1.1
+ * @since           1.1.0
  * @package         EasySwipeBox
  *
- * @subpackage    EasySwipeBox/includes
+ * @subpackage      EasySwipeBox/includes
  */
 
 /**
@@ -21,17 +21,16 @@ namespace EasySwipeBox;
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @since           1.1
  * @package         EasySwipeBox
- * @subpackage    EasySwipeBox/includes
- * @author        leopuleo
+ * @subpackage      EasySwipeBox/includes
+ * @author          leopuleo
  */
 class EasySwipeBoxi18n {
 
   /**
    * The domain specified for this plugin.
    *
-   * @since    1.0.0
+   * @since    1.1.0
    * @access   private
    * @var      string    $domain    The domain identifier for this plugin.
    */
@@ -40,7 +39,7 @@ class EasySwipeBoxi18n {
   /**
    * Load the plugin text domain for translation.
    *
-   * @since    1.1
+   * @since    1.1.0
    */
   public function loadPluginTextdomain() {
 
@@ -55,7 +54,7 @@ class EasySwipeBoxi18n {
   /**
    * Set the domain equal to that of the specified domain.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @param    string    $domain    The domain that represents the locale of this plugin.
    */
   public function setDomain($domain) {

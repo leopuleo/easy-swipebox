@@ -10,7 +10,7 @@
  * @wordpress-plugin
  * Plugin Name: Easy SwipeBox
  * Plugin URI: https://github.com/leopuleo
- * Description: This plugin enable <a href="http://brutaldesign.github.io/swipebox/">SwipeBox jQuery extension</a> on all links to image or Video (Youtube / Vimeo).
+ * Description: Easily enable <a href="http://brutaldesign.github.io/swipebox/">SwipeBox jQuery extension</a> on all links to image or Video (Youtube / Vimeo).
  * Version:           1.1
  * Author: Leonardo Giacone
  * Author URI: https://github.com/leopuleo
@@ -24,27 +24,6 @@
 if (!defined('WPINC')) {
   die;
 }
-
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-easy-swipebox-activator.php
- */
-function activate_easy_swipebox() {
-  require_once plugin_dir_path(__FILE__) . 'includes/class-easy-swipebox-activator.php';
-  EasySwipeBoxActivator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-easy-swipebox-deactivator.php
- */
-function deactivate_easy_swipebox() {
-  require_once plugin_dir_path(__FILE__) . 'includes/class-easy-swipebox-deactivator.php';
-  EasySwipeBoxDeactivator::deactivate();
-}
-
-register_activation_hook(__FILE__, 'activate_easy_swipebox');
-register_deactivation_hook(__FILE__, 'deactivate_easy_swipebox');
 
 /**
  * The core plugin class that is used to define internationalization,

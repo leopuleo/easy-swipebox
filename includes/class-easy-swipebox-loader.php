@@ -5,11 +5,11 @@ namespace EasySwipeBox;
 /**
  * Register all actions and filters for the plugin
  *
- * @link       http://example.com
- * @since      1.0.0
+ * @link            https://github.com/leopuleo/easy-swipebox
+ * @since           1.1
+ * @package         EasySwipeBox
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @subpackage      EasySwipeBox/includes
  */
 
 /**
@@ -19,16 +19,17 @@ namespace EasySwipeBox;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package       EasySwipeBox
+ * @subpackage    EasySwipeBox/includes
+ * @author        leopuleo
  */
+
 class EasySwipeboxLoader {
 
   /**
    * The array of actions registered with WordPress.
    *
-   * @since    1.0.0
+   * @since    1.1.0
    * @access   protected
    * @var      array    $actions    The actions registered with WordPress to fire when the plugin loads.
    */
@@ -37,7 +38,7 @@ class EasySwipeboxLoader {
   /**
    * The array of filters registered with WordPress.
    *
-   * @since    1.0.0
+   * @since    1.1.0
    * @access   protected
    * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
    */
@@ -46,7 +47,7 @@ class EasySwipeboxLoader {
   /**
    * Initialize the collections used to maintain the actions and filters.
    *
-   * @since    1.0.0
+   * @since    1.1.0
    */
   public function __construct() {
 
@@ -58,7 +59,7 @@ class EasySwipeboxLoader {
   /**
    * Add a new action to the collection to be registered with WordPress.
    *
-   * @since    1.0.0
+   * @since    1.1.0
    * @param    string               $hook             The name of the WordPress action that is being registered.
    * @param    object               $component        A reference to the instance of the object on which the action is defined.
    * @param    string               $callback         The name of the function definition on the $component.
@@ -72,7 +73,7 @@ class EasySwipeboxLoader {
   /**
    * Add a new filter to the collection to be registered with WordPress.
    *
-   * @since    1.0.0
+   * @since    1.1.0
    * @param    string               $hook             The name of the WordPress filter that is being registered.
    * @param    object               $component        A reference to the instance of the object on which the filter is defined.
    * @param    string               $callback         The name of the function definition on the $component.
@@ -87,7 +88,7 @@ class EasySwipeboxLoader {
    * A utility function that is used to register the actions and hooks into a single
    * collection.
    *
-   * @since    1.0.0
+   * @since    1.1.0
    * @access   private
    * @param    array                $hooks            The collection of hooks that is being registered (that is, actions or filters).
    * @param    string               $hook             The name of the WordPress filter that is being registered.
