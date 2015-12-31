@@ -208,7 +208,7 @@ class EasySwipeBox {
     $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts');
     $this->loader->addAction('admin_menu', $plugin_admin, 'AddSettingPage');
     $this->loader->addAction('admin_init', $plugin_admin, 'SettingsInit');
-    $this->loader->addFilter( 'plugin_action_links_' . $this->plugin_basename, $plugin_admin, 'addPluginLinks' );
+    $this->loader->addFilter('plugin_action_links_' . $this->plugin_basename, $plugin_admin, 'addPluginLinks');
 
   }
 

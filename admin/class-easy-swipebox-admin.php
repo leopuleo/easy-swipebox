@@ -324,11 +324,9 @@ class EasySwipeboxAdmin {
 
   public function animationRender() {
     ?>
-    <label>
       <input id="easySwipeBox_lightbox[useCSS]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="1" <?php if ($this->options_lightbox['useCSS'] == 1) {echo 'checked="checked"';} ?> /><?php _e('CSS', $this->plugin_name); ?>
       <input id="easySwipeBox_lightbox[useJquery]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="0" <?php if ($this->options_lightbox['useCSS'] == 0) {echo 'checked="checked"';} ?> /><?php _e('Jquery', $this->plugin_name); ?><br>
-      <em><?php _e('Select the method used to render the lightbox. Use Jquery if you are having problems with old browsers (Default: CSS).', $this->plugin_name); ?></em>
-    </label>
+      <em><?php _e('Select the method used to render the animations. Use Jquery if you are having problems with old browsers (Default: CSS).', $this->plugin_name); ?></em>
     <?php
   }
 
