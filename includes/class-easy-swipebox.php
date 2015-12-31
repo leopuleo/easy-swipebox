@@ -28,6 +28,7 @@ namespace EasySwipeBox;
  * @subpackage    EasySwipeBox/includes
  * @author        leopuleo
  */
+
 class EasySwipeBox {
 
   /**
@@ -59,6 +60,15 @@ class EasySwipeBox {
   protected $version;
 
   /**
+   * The main dir of this plugin.
+   *
+   * @since    1.1.0
+   * @access   protected
+   * @var      string    $version    The current version of the plugin.
+   */
+  protected $plugin_basename;
+
+  /**
    * Autodetect options of this plugin.
    *
    * @since    1.1.0
@@ -88,7 +98,8 @@ class EasySwipeBox {
   public function __construct() {
 
     $this->plugin_name = 'easy-swipebox';
-    $this->version = '1.1';
+    $this->version = '1.1.0';
+    $this->plugin_basename = plugin_basename(plugin_dir_path(__DIR__) . $this->plugin_name . '.php');
 
     // Define defaults for autodetect options
     $this->defaults_autodetect = array (
@@ -191,12 +202,14 @@ class EasySwipeBox {
    */
   private function defineAdminHooks() {
 
-    $plugin_admin = new EasySwipeboxAdmin($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox());
+    $plugin_admin = new EasySwipeboxAdmin($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox(), $this->getPluginBasename());
 
     $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles');
     $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts');
     $this->loader->addAction('admin_menu', $plugin_admin, 'AddSettingPage');
     $this->loader->addAction('admin_init', $plugin_admin, 'SettingsInit');
+    $this->loader->addFilter( 'plugin_action_links_' . $this->plugin_basename, $plugin_admin, 'addPluginLinks' );
+
   }
 
   /**
@@ -253,6 +266,16 @@ class EasySwipeBox {
    */
   public function getVersion() {
     return $this->version;
+  }
+
+  /**
+   * Retrieve the main dir of the plugin.
+   *
+   * @since     1.1.0
+   * @return    string    The version number of the plugin.
+   */
+  public function getPluginBasename() {
+    return $this->plugin_basename;
   }
 
   /**

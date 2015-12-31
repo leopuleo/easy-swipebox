@@ -18,7 +18,7 @@ class EasySwipeboxAdmin {
   /**
    * The ID of this plugin.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      string    $plugin_name    The ID of this plugin.
    */
@@ -27,7 +27,7 @@ class EasySwipeboxAdmin {
   /**
    * The version of this plugin.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      string    $version    The current version of this plugin.
    */
@@ -36,7 +36,7 @@ class EasySwipeboxAdmin {
   /**
    * Loading the autodetect options
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      array    $options_autodetect    The autodetection options.
    */
@@ -45,7 +45,7 @@ class EasySwipeboxAdmin {
   /**
    * Loading the lightbox options
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      array    $options_lightbox    The lightbox options.
    */
@@ -54,7 +54,7 @@ class EasySwipeboxAdmin {
   /**
    * Initialize the class and set its properties.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @param      string    $plugin_name       The name of this plugin.
    * @param      string    $version    The version of this plugin.
    * @param      string    $options_autodetect       The autodetection options.
@@ -72,7 +72,7 @@ class EasySwipeboxAdmin {
   /**
    * Register the stylesheets for the admin area.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function enqueueStyles() {
@@ -82,7 +82,7 @@ class EasySwipeboxAdmin {
   /**
    * Register the JavaScript for the admin area.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function enqueueScripts() {
@@ -90,9 +90,22 @@ class EasySwipeboxAdmin {
   }
 
   /**
-   * Add pluhin option page
+   * Register the plugin link in plugins list page.
    *
-   * @since    1.1
+   * @since    1.1.0
+   * @access   public
+   */
+  public function addPluginLinks($links) {
+    $custom_links = array(
+      '<a href="' . admin_url('options-general.php?page=easy-swipebox-settings') . '">' . __('Settings', $this->plugin_name) . '</a>'
+    );
+    return array_merge($links, $custom_links);
+  }
+
+  /**
+   * Add plugin option page
+   *
+   * @since    1.1.0
    * @access   public
    */
   public function addSettingPage() {
@@ -109,7 +122,7 @@ class EasySwipeboxAdmin {
   /**
    * Register setting page sections and fields
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function settingsInit() {
@@ -255,7 +268,7 @@ class EasySwipeboxAdmin {
   /**
    * Render setting page sections and fields
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function generalSectionRender() {
@@ -438,7 +451,7 @@ class EasySwipeboxAdmin {
   /**
    * Render the setting form and tabs
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function easySwipeBoxSettingsPage() {
@@ -493,7 +506,7 @@ class EasySwipeboxAdmin {
   /**
    * Sanitize autodetect fields
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function sanitizeAutodetect($input) {
@@ -516,7 +529,7 @@ class EasySwipeboxAdmin {
   /**
    * Sanitize lightbox fields
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function sanitizeLightbox($input) {
@@ -570,7 +583,7 @@ class EasySwipeboxAdmin {
   /**
    * Check if color is a valid HEX.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   public
    */
   public function checkColor($value) {

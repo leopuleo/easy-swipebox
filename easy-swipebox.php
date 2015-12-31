@@ -4,14 +4,14 @@
  * Easy SwipeBox bootstrap file
  *
  * @link              https://github.com/leopuleo/easy-swipebox
- * @since             1.1
+ * @since             1.1.0
  * @package           EasySwipeBox
  *
  * @wordpress-plugin
  * Plugin Name: Easy SwipeBox
  * Plugin URI: https://github.com/leopuleo
  * Description: Easily enable <a href="http://brutaldesign.github.io/swipebox/">SwipeBox jQuery extension</a> on all links to image or Video (Youtube / Vimeo).
- * Version:           1.1
+ * Version:           1.1.0
  * Author: Leonardo Giacone
  * Author URI: https://github.com/leopuleo
  * License:           GPL-2.0+
@@ -38,7 +38,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-easy-swipebox.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.1
+ * @since    1.1.0
  */
 function run_easy_swipebox() {
 

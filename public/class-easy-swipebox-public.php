@@ -6,7 +6,7 @@ namespace EasySwipeBox;
  * The public-facing functionality of the plugin.
  *
  * @link            https://github.com/leopuleo/easy-swipebox
- * @since           1.1
+ * @since           1.1.0
  * @package         EasySwipeBox
  *
  * @subpackage    EasySwipeBox/public
@@ -27,7 +27,7 @@ class EasySwipeBoxPublic {
   /**
    * The ID of this plugin.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      string    $plugin_name    The ID of this plugin.
    */
@@ -36,7 +36,7 @@ class EasySwipeBoxPublic {
   /**
    * The version of this plugin.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      string    $version    The current version of this plugin.
    */
@@ -45,7 +45,7 @@ class EasySwipeBoxPublic {
   /**
    * Loading the autodetect options
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      array    $options_autodetect    The autodetection options.
    */
@@ -54,7 +54,7 @@ class EasySwipeBoxPublic {
    /**
    * Loading the lightbox options
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    * @var      array    $options_lightbox    The lightbox options.
    */
@@ -63,7 +63,7 @@ class EasySwipeBoxPublic {
   /**
    * Initialize the class and set its properties.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @param      string    $plugin_name       The name of this plugin.
    * @param      string    $version    The version of this plugin.
    * @param      string    $options_autodetect       The autodetection options.
@@ -81,7 +81,7 @@ class EasySwipeBoxPublic {
   /**
    * Register the stylesheets for the public-facing side of the site.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    */
   public function enqueueStyles() {
@@ -108,7 +108,7 @@ class EasySwipeBoxPublic {
   /**
    * Register the JavaScript for the public-facing side of the site.
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    */
   public function enqueueScripts() {
@@ -119,9 +119,7 @@ class EasySwipeBoxPublic {
      *    unminifiled for development (set WP_DEBUG true)
      *    minified for production
      * 2) Custom init
-     * 3) Autodetect Images
-     * 4) Autodetect Video
-     *
+     * 3) Localized options with vars stored in db
      */
 
     if (defined('WP_DEBUG') && true == WP_DEBUG) {
@@ -138,7 +136,7 @@ class EasySwipeBoxPublic {
    * Localize vars for SwipeBox init
    * Print vars stored in db and passed to js files
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    */
 
@@ -167,7 +165,7 @@ class EasySwipeBoxPublic {
   /**
    * Sanitize HEX Color
    *
-   * @since    1.1
+   * @since    1.1.0
    * @access   private
    */
   private function sanitizeHexColor($color, $hash = false) {
