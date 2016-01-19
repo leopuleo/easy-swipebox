@@ -276,8 +276,8 @@ class EasySwipeboxAdmin {
       <p>
         <?php _e('Select one or more options, <strong>Easy SwipeBox</strong> automatically detects the media type and add <code>class="swipebox"</code> to their links.', $this->plugin_name); ?><br>
               <?php _e('By default, <strong>Easy SwipeBox</strong> detects automatically links to <strong>images</strong> (jpg / jpeg / gif / png) and <strong>videos</strong> (Youtube / Vimeo).', $this->plugin_name); ?><br><br>
-              <?php _e('If you like to exclude a single image or video from autodetection enter the selector that groups these elements.', $this->plugin_name); ?><br>
-              <?php _e('By default, <strong>Easy Swipebox</strong> uses <code>.no-swipebox</code>.', $this->plugin_name); ?><br>
+              <?php _e('If you like to exclude some images or videos from autodetection enter the selector that groups these elements.', $this->plugin_name); ?><br>
+              <?php _e('By default, <strong>Easy SwipeBox</strong> uses <code>.no-swipebox</code>.', $this->plugin_name); ?><br>
       </p>
     <?php
   }
@@ -317,7 +317,7 @@ class EasySwipeboxAdmin {
   // Section: Lightbox Settings
   public function lightboxSectionRender() {
     ?>
-      <p><?php _e('In this page you can customize the Swipebox lightbox behaviour. Discover more about <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox options</a></strong>.', $this->plugin_name); ?><br>
+      <p><?php _e('In this page you can customize the SwipeBox lightbox behaviour. Discover more about <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox options</a></strong>.', $this->plugin_name); ?><br>
       </p>
     <?php
   }
@@ -326,7 +326,7 @@ class EasySwipeboxAdmin {
     ?>
       <input id="easySwipeBox_lightbox[useCSS]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="1" <?php if ($this->options_lightbox['useCSS'] == 1) {echo 'checked="checked"';} ?> /><?php _e('CSS', $this->plugin_name); ?>
       <input id="easySwipeBox_lightbox[useJquery]" type="radio" name="easySwipeBox_lightbox[useCSS]" value="0" <?php if ($this->options_lightbox['useCSS'] == 0) {echo 'checked="checked"';} ?> /><?php _e('Jquery', $this->plugin_name); ?><br>
-      <em><?php _e('Select the method used to render the animations. Use Jquery if you are having problems with old browsers (Default: CSS).', $this->plugin_name); ?></em>
+      <em><?php _e('Select the method used to render the animations. Use jQuery if you are having problems with old browsers (Default: CSS).', $this->plugin_name); ?></em>
     <?php
   }
 
@@ -425,7 +425,7 @@ class EasySwipeboxAdmin {
       <ol>
         <li><?php _e('Enqueuing of SwipeBox Javascript and CSS files. Set <code>WP_DEBUG</code> to true for the uncompressed files.', $this->plugin_name); ?></li>
         <li><?php _e('Autodetection of links to images or videos. You can exclude/include media types from the <strong>General Settings</strong> page.', $this->plugin_name); ?></li>
-        <li><?php _e('Customization of SwipeBox lightbox appereance and behaviour from the <strong>Lightbox Settings</strong> page.', $this->plugin_name); ?></li>
+        <li><?php _e('Customization of SwipeBox lightbox appereance and behaviour from the <strong>SwipeBox Settings</strong> page.', $this->plugin_name); ?></li>
       </ol>
       <hr>
 

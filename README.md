@@ -17,8 +17,17 @@ All links to JPG / GIF / PNG images and Youtube / Vimeo are automatically opened
 Select one or more options, Easy SwipeBox automatically detects the media type and add `class="swipebox"` to their links.
 Otherwise, add `class="swipebox"` yourself to make the magic happen.
 
-## Contribution
+If you like to exclude some images or videos from autodetection enter the selector that groups these elements.
+By default, Easy SwipeBox uses `.no-swipebox`.
 
-Please, for contributions, issues and questions visit [Github repo](https://github.com/leopuleo/easy-swipebox).
+## Contribution
+There are many ways to contribute to this plugin:
+
+1. Report a bug, submit pull request or new feature proposal: visit the [Github repo](https://github.com/leopuleo/easy-swipebox).
+2. Translate it in your language: visit the [WordPress translation page](https://translate.wordpress.org/projects/wp-plugins/easy-swipebox).
+3. Rate it 5 stars on [WordPress.org](https://wordpress.org/support/view/plugin-reviews/easy-swipebox?filter=5#postform).
+
+## Support
+Need help? Visit the [WordPress.org](https://wordpress.org/support/plugin/easy-swipebox) support page or the [Github Issue Tracker](https://github.com/leopuleo/easy-swipebox/issues).
 
 Note: this plugin use SwipeBox jQuery plugin as Lightbox solution. For any issues and pull requests related to SwipeBox functionalities please visit the [SwipeBox Repo](https://github.com/brutaldesign/swipebox).
