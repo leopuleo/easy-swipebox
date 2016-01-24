@@ -51,7 +51,7 @@ class EasySwipeBoxPublic {
    */
   private $options_autodetect;
 
-   /**
+  /**
    * Loading the lightbox options
    *
    * @since    1.1.0
@@ -59,6 +59,15 @@ class EasySwipeBoxPublic {
    * @var      array    $options_lightbox    The lightbox options.
    */
   private $options_lightbox;
+
+  /**
+   * Loading the lightbox options
+   *
+   * @since    1.1.0
+   * @access   private
+   * @var      array    $options_lightbox    The lightbox options.
+   */
+  private $options_advanced;
 
   /**
    * Initialize the class and set its properties.
@@ -69,13 +78,13 @@ class EasySwipeBoxPublic {
    * @param      string    $options_autodetect       The autodetection options.
    * @param      string    $options_lightbox    The lightbox options.
    */
-  public function __construct($plugin_name, $version, $options_autodetect, $options_lightbox) {
+  public function __construct($plugin_name, $version, $options_autodetect, $options_lightbox, $options_advanced) {
 
     $this->plugin_name = $plugin_name;
     $this->version = $version;
     $this->options_autodetect = $options_autodetect;
     $this->options_lightbox = $options_lightbox;
-
+    $this->options_advanced = $options_advanced;
   }
 
   /**
@@ -89,7 +98,7 @@ class EasySwipeBoxPublic {
     /**
      * Dequeue any existing SwipeBox CSS
      * Register Plugin CSS:
-     * unminifiled for development (set WP_DEBUG true)
+     * unminifiled for development (see advanced settings)
      * minified for production
      */
 
@@ -98,7 +107,7 @@ class EasySwipeBoxPublic {
     wp_dequeue_style('jquery_swipebox');
     wp_dequeue_style('jquery-swipebox');
 
-    if (defined('WP_DEBUG') && true == WP_DEBUG) {
+    if ($this->options_advanced['debugMode'] == 1) {
       wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/swipebox.css', array(), $this->version, 'all');
     } else {
       wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/swipebox.min.css', array(), $this->version, 'all');
@@ -114,21 +123,31 @@ class EasySwipeBoxPublic {
   public function enqueueScripts() {
 
     /**
+     * Load position of javascript files: header o footer (see advanced settings)
+     */
+
+    if ($this->options_advanced['loadingPlace'] == 'header') {
+      $jsPosition = false;
+    } else {
+      $jsPosition = true;
+    }
+
+    /**
      * Register SwipeBox Scripts:
      * 1) Core
-     *    unminifiled for development (set WP_DEBUG true)
+     *    unminifiled for development (see advanced settings)
      *    minified for production
      * 2) Custom init
      * 3) Localized options with vars stored in db
      */
 
-    if (defined('WP_DEBUG') && true == WP_DEBUG) {
-      wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/jquery.swipebox.js', array( 'jquery'), $this->version, true);
+    if ($this->options_advanced['debugMode'] == 1) {
+      wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/jquery.swipebox.js', array( 'jquery'), $this->version, $jsPosition);
     } else {
-      wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/jquery.swipebox.min.js', array( 'jquery'), $this->version, true);
+      wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/jquery.swipebox.min.js', array( 'jquery'), $this->version, $jsPosition);
     }
 
-    wp_enqueue_script($this->plugin_name .'-init', plugin_dir_url(__FILE__) . 'js/jquery.init.js', array( 'jquery'), $this->version, true);
+    wp_enqueue_script($this->plugin_name .'-init', plugin_dir_url(__FILE__) . 'js/jquery.init.js', array( 'jquery'), $this->version, $jsPosition);
     wp_localize_script($this->plugin_name .'-init', 'easySwipeBox_localize_init_var', $this->localizeInitVar());
   }
 

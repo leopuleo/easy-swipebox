@@ -52,6 +52,15 @@ class EasySwipeboxAdmin {
   private $options_lightbox;
 
   /**
+   * Loading the lightbox options
+   *
+   * @since    1.1.0
+   * @access   private
+   * @var      array    $options_advanced    The advanced options.
+   */
+  private $options_advanced;
+
+  /**
    * Initialize the class and set its properties.
    *
    * @since    1.1.0
@@ -60,12 +69,13 @@ class EasySwipeboxAdmin {
    * @param      string    $options_autodetect       The autodetection options.
    * @param      string    $options_lightbox    The lightbox options.
    */
-  public function __construct($plugin_name, $version, $options_autodetect, $options_lightbox) {
+  public function __construct($plugin_name, $version, $options_autodetect, $options_lightbox, $options_advanced) {
 
     $this->plugin_name = $plugin_name;
     $this->version = $version;
     $this->options_autodetect = $options_autodetect;
     $this->options_lightbox = $options_lightbox;
+    $this->options_advanced = $options_advanced;
 
   }
 
@@ -130,15 +140,8 @@ class EasySwipeboxAdmin {
     // Register Settings
     register_setting('easySwipeBox_autodetect', 'easySwipeBox_autodetect', array($this, 'sanitizeAutodetect'));
     register_setting('easySwipeBox_lightbox', 'easySwipeBox_lightbox', array($this, 'sanitizeLightbox'));
+    register_setting('easySwipeBox_advanced', 'easySwipeBox_advanced', array($this, 'sanitizeAdvanced'));
     register_setting('easySwipeBox_overview', 'easySwipeBox_overview');
-
-    // Section: General Settings
-    add_settings_section(
-      'general_section',
-      __('Autodetect', $this->plugin_name),
-      array($this, 'generalSectionRender'),
-      'easySwipeBox_autodetect'
-    );
 
     // Section: Lightbox Settings
     add_settings_section(
@@ -148,39 +151,28 @@ class EasySwipeboxAdmin {
       'easySwipeBox_lightbox'
     );
 
+    // Section: Autodetect Settings
+    add_settings_section(
+      'autodetect_section',
+      __('Autodetect settings', $this->plugin_name),
+      array($this, 'autodetectSectionRender'),
+      'easySwipeBox_autodetect'
+    );
+
+    // Section: Advanced Settings
+    add_settings_section(
+      'advanced_section',
+      __('Advanced settings', $this->plugin_name),
+      array($this, 'advancedtSectionRender'),
+      'easySwipeBox_advanced'
+    );
+
     // Section: Overview
     add_settings_section(
       'description_section',
       __('Overview', $this->plugin_name),
       array($this, 'descriptionSectionRender'),
       'easySwipeBox_overview'
-    );
-
-    // Field: General Settings -> Autodetect Image
-    add_settings_field(
-      'autodetect_image',
-      __('Image links', $this->plugin_name),
-      array( $this, 'autodetectImageRender' ),
-      'easySwipeBox_autodetect',
-      'general_section'
-    );
-
-    // Field: General Settings -> Autodetect Video
-    add_settings_field(
-      'autodetect_video',
-      __('Video links', $this->plugin_name),
-      array($this, 'autodetectVideoRender'),
-      'easySwipeBox_autodetect',
-      'general_section'
-    );
-
-    // Field: General Settings -> Autodetect Exclude
-    add_settings_field(
-      'autodetect_exclude',
-      __('Exclude links', $this->plugin_name),
-      array($this, 'autodetectExcludeRender'),
-      'easySwipeBox_autodetect',
-      'general_section'
     );
 
     // Field: Lightbox Settings -> Animation
@@ -263,6 +255,51 @@ class EasySwipeboxAdmin {
       'easySwipeBox_lightbox',
       'lightbox_section'
     );
+
+    // Field: General Settings -> Autodetect Image
+    add_settings_field(
+      'autodetect_image',
+      __('Image links', $this->plugin_name),
+      array( $this, 'autodetectImageRender' ),
+      'easySwipeBox_autodetect',
+      'autodetect_section'
+    );
+
+    // Field: General Settings -> Autodetect Video
+    add_settings_field(
+      'autodetect_video',
+      __('Video links', $this->plugin_name),
+      array($this, 'autodetectVideoRender'),
+      'easySwipeBox_autodetect',
+      'autodetect_section'
+    );
+
+    // Field: General Settings -> Autodetect Exclude
+    add_settings_field(
+      'autodetect_exclude',
+      __('Exclude links', $this->plugin_name),
+      array($this, 'autodetectExcludeRender'),
+      'easySwipeBox_autodetect',
+      'autodetect_section'
+    );
+
+    // Field: Advanced Settings -> Loading Place
+    add_settings_field(
+      'loading_place',
+      __('Loading place', $this->plugin_name),
+      array($this, 'loadingPlaceRender'),
+      'easySwipeBox_advanced',
+      'advanced_section'
+    );
+
+    // Field: Advanced Settings -> Debug Mode
+    add_settings_field(
+      'debug_mode',
+      __('Debug Mode', $this->plugin_name),
+      array($this, 'debugModeRender'),
+      'easySwipeBox_advanced',
+      'advanced_section'
+    );
   }
 
   /**
@@ -271,48 +308,6 @@ class EasySwipeboxAdmin {
    * @since    1.1.0
    * @access   public
    */
-  public function generalSectionRender() {
-    ?>
-      <p>
-        <?php _e('Select one or more options, <strong>Easy SwipeBox</strong> automatically detects the media type and add <code>class="swipebox"</code> to their links.', $this->plugin_name); ?><br>
-              <?php _e('By default, <strong>Easy SwipeBox</strong> detects automatically links to <strong>images</strong> (jpg / jpeg / gif / png) and <strong>videos</strong> (Youtube / Vimeo).', $this->plugin_name); ?><br><br>
-              <?php _e('If you like to exclude some images or videos from autodetection enter the selector that groups these elements.', $this->plugin_name); ?><br>
-              <?php _e('By default, <strong>Easy SwipeBox</strong> uses <code>.no-swipebox</code>.', $this->plugin_name); ?><br>
-      </p>
-    <?php
-  }
-
-  public function autodetectImageRender() {
-    ?>
-    <label>
-      <input type="hidden" id="hidden_easySwipeBox_autodetect[image]" name="easySwipeBox_autodetect[image]" value="0" />
-      <input id="easySwipeBox_autodetect[image]" type="checkbox" name="easySwipeBox_autodetect[image]" value="1" <?php if ($this->options_autodetect['image'] == 1) {echo 'checked="checked"';}?>
-      />
-      <?php _e('Add SwipeBox to image links by default', $this->plugin_name); ?>
-      <em>(<?php _e('jpg / jpeg / gif / png', $this->plugin_name); ?>)</em>
-    </label>
-    <?php
-  }
-
-  public function autodetectVideoRender() {
-    ?>
-    <label>
-      <input type="hidden" id="hidden_easySwipeBox_autodetect[video]" name="easySwipeBox_autodetect[video]" value="0" />
-      <input id="easySwipeBox_autodetect[video]" type="checkbox" name="easySwipeBox_autodetect[video]" value="1" <?php if ($this->options_autodetect['video'] == 1) {echo 'checked="checked"';} ?> />
-      <?php _e('Add SwipeBox to video links by default', $this->plugin_name); ?>
-        <em>(<?php _e('Youtube / Vimeo', $this->plugin_name); ?>)</em>
-    </label>
-    <?php
-  }
-
-  public function autodetectExcludeRender() {
-    ?>
-    <label>
-      <input id="easySwipeBox_autodetect[class_exclude]" type="text" name="easySwipeBox_autodetect[class_exclude]" value="<?php echo $this->options_autodetect['class_exclude']; ?>" /><br>
-      <em><?php _e('Enter the selector that groups the media you would like to exclude from autodetection (Default: <code>.no-swipebox</code>).', $this->plugin_name); ?></em>
-    </label>
-    <?php
-  }
 
   // Section: Lightbox Settings
   public function lightboxSectionRender() {
@@ -358,7 +353,7 @@ class EasySwipeboxAdmin {
       <input type="hidden" id="hidden_easySwipeBox_lightbox[hideCloseButtonOnMobile]" name="easySwipeBox_lightbox[hideCloseButtonOnMobile]" value="0" />
       <input id="easySwipeBox_lightbox[hideCloseButtonOnMobile]" type='checkbox' name='easySwipeBox_lightbox[hideCloseButtonOnMobile]' value='1' <?php if ($this->options_lightbox['hideCloseButtonOnMobile'] == 1) {echo 'checked="checked"';} ?> />
       <strong><?php _e('Hide close button on mobile', $this->plugin_name); ?></strong><br>
-      <em><?php _e('Select this options if you like to hide the close button on mobile devices (Default: true).', $this->plugin_name); ?></em>
+      <em><?php _e('Select this options if you like to hide the close button on mobile devices (Default: false).', $this->plugin_name); ?></em>
     </label>
     <?php
   }
@@ -414,6 +409,77 @@ class EasySwipeboxAdmin {
     <?php
   }
 
+  // Section: Autodetect
+  public function autodetectSectionRender() {
+    ?>
+      <p>
+        <?php _e('Select one or more options, <strong>Easy SwipeBox</strong> automatically detects the media type and add <code>class="swipebox"</code> to their links.', $this->plugin_name); ?><br>
+              <?php _e('By default, <strong>Easy SwipeBox</strong> detects automatically links to <strong>images</strong> (jpg / jpeg / gif / png) and <strong>videos</strong> (Youtube / Vimeo).', $this->plugin_name); ?><br><br>
+              <?php _e('If you like to exclude some images or videos from autodetection enter the selector that groups these elements.', $this->plugin_name); ?><br>
+              <?php _e('By default, <strong>Easy SwipeBox</strong> uses <code>.no-swipebox</code>.', $this->plugin_name); ?><br>
+      </p>
+    <?php
+  }
+
+  public function autodetectImageRender() {
+    ?>
+    <label>
+      <input type="hidden" id="hidden_easySwipeBox_autodetect[image]" name="easySwipeBox_autodetect[image]" value="0" />
+      <input id="easySwipeBox_autodetect[image]" type="checkbox" name="easySwipeBox_autodetect[image]" value="1" <?php if ($this->options_autodetect['image'] == 1) {echo 'checked="checked"';}?>
+      />
+      <?php _e('Add SwipeBox to image links by default', $this->plugin_name); ?>
+      <em>(<?php _e('jpg / jpeg / gif / png', $this->plugin_name); ?>)</em>
+    </label>
+    <?php
+  }
+
+  public function autodetectVideoRender() {
+    ?>
+    <label>
+      <input type="hidden" id="hidden_easySwipeBox_autodetect[video]" name="easySwipeBox_autodetect[video]" value="0" />
+      <input id="easySwipeBox_autodetect[video]" type="checkbox" name="easySwipeBox_autodetect[video]" value="1" <?php if ($this->options_autodetect['video'] == 1) {echo 'checked="checked"';} ?> />
+      <?php _e('Add SwipeBox to video links by default', $this->plugin_name); ?>
+        <em>(<?php _e('Youtube / Vimeo', $this->plugin_name); ?>)</em>
+    </label>
+    <?php
+  }
+
+  public function autodetectExcludeRender() {
+    ?>
+    <label>
+      <input id="easySwipeBox_autodetect[class_exclude]" type="text" name="easySwipeBox_autodetect[class_exclude]" value="<?php echo $this->options_autodetect['class_exclude']; ?>" /><br>
+      <em><?php _e('Enter the selector that groups the media you would like to exclude from autodetection (Default: <code>.no-swipebox</code>).', $this->plugin_name); ?></em>
+    </label>
+    <?php
+  }
+
+  // Section: Advanced Settings
+  public function advancedtSectionRender() {
+    ?>
+      <p><?php _e('In this page you can customize the Easy SwipeBox advanced settings.', $this->plugin_name); ?> <?php _e('Please be carefull, the wrong settings combination can break your site.', $this->plugin_name); ?><br>
+      </p>
+    <?php
+  }
+
+  public function loadingPlaceRender() {
+    ?>
+      <input id="easySwipeBox_advanced[loadingPlace]" type="radio" name="easySwipeBox_advanced[loadingPlace]" value="header" <?php if ($this->options_advanced['loadingPlace'] == 'header') {echo 'checked="checked"';} ?> /><?php _e('Header', $this->plugin_name); ?>
+      <input id="easySwipeBox_advanced[loadingPlace]" type="radio" name="easySwipeBox_advanced[loadingPlace]" value="footer" <?php if ($this->options_advanced['loadingPlace'] == 'footer') {echo 'checked="checked"';} ?> /><?php _e('Footer', $this->plugin_name); ?><br>
+      <em><?php _e('Select where all the lightbox scripts should be placed. (Default: Footer).', $this->plugin_name); ?></em>
+    <?php
+  }
+
+  public function debugModeRender() {
+    ?>
+    <label>
+      <input type="hidden" id="hidden_easySwipeBox_advanced[debugMode]" name="easySwipeBox_advanced[debugMode]" value="0" />
+      <input id="easySwipeBox_advanced[debugMode]" type='checkbox' name='easySwipeBox_advanced[debugMode]' value='1' <?php if ($this->options_advanced['debugMode'] == 1) {echo 'checked="checked"';} ?> />
+      <strong><?php _e('Enable Debug', $this->plugin_name); ?></strong><br>
+      <em><?php _e('Select this options if you like to enqueue uncompressed CSS and JavaScript files (Default: false).', $this->plugin_name); ?></em>
+    </label>
+    <?php
+  }
+
   // Section: Overview
   public function descriptionSectionRender() {
     ?>
@@ -425,7 +491,7 @@ class EasySwipeboxAdmin {
       <ol>
         <li><?php _e('Enqueuing of SwipeBox Javascript and CSS files. Set <code>WP_DEBUG</code> to true for the uncompressed files.', $this->plugin_name); ?></li>
         <li><?php _e('Autodetection of links to images or videos. You can exclude/include media types from the <strong>General Settings</strong> page.', $this->plugin_name); ?></li>
-        <li><?php _e('Customization of SwipeBox lightbox appereance and behaviour from the <strong>SwipeBox Settings</strong> page.', $this->plugin_name); ?></li>
+        <li><?php _e('Customization of SwipeBox lightbox appereance and behaviour from the <strong>Lightbox Settings</strong> page.', $this->plugin_name); ?></li>
       </ol>
       <hr>
 
@@ -463,27 +529,35 @@ class EasySwipeboxAdmin {
     if (isset($_GET['tab'])) {
         $active_tab = $_GET['tab'];
     } else {
-      $active_tab = 'general_options';
+      $active_tab = 'lightbox_options';
     }
     ?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=general_options');?>" class="nav-tab <?php echo $active_tab == 'general_options' ? 'nav-tab-active' : ''; ?>"><?php _e('General Settings', $this->plugin_name); ?></a>
-        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=lightbox_options');?>" class="nav-tab <?php echo $active_tab == 'lightbox_options' ? 'nav-tab-active' : ''; ?>"><?php _e('SwipeBox Settings', $this->plugin_name); ?></a>
+        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=lightbox_options');?>" class="nav-tab <?php echo $active_tab == 'lightbox_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Lightbox Settings', $this->plugin_name); ?></a>
+        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=autodetect_options');?>" class="nav-tab <?php echo $active_tab == 'autodetect_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Autodetect Settings', $this->plugin_name); ?></a>
+        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=advanced_options');?>" class="nav-tab <?php echo $active_tab == 'advanced_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Advanced Settings', $this->plugin_name); ?></a>
         <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=overview');?>" class="nav-tab <?php echo $active_tab == 'overview' ? 'nav-tab-active' : ''; ?>"><?php _e('Overview', $this->plugin_name); ?></a>
     </h2>
 
     <?php
     switch ($active_tab) {
-      case 'general_options':
+
+      case 'lightbox_options':
+        settings_fields('easySwipeBox_lightbox');
+        do_settings_sections('easySwipeBox_lightbox');
+        submit_button();
+        break;
+
+      case 'autodetect_options':
         settings_fields('easySwipeBox_autodetect');
         do_settings_sections('easySwipeBox_autodetect');
         submit_button();
         break;
 
-      case 'lightbox_options':
-        settings_fields('easySwipeBox_lightbox');
-        do_settings_sections('easySwipeBox_lightbox');
+      case 'advanced_options':
+        settings_fields('easySwipeBox_advanced');
+        do_settings_sections('easySwipeBox_advanced');
         submit_button();
         break;
 
@@ -499,29 +573,6 @@ class EasySwipeboxAdmin {
       </div>
     </form>
   <?php
-  }
-
-  /**
-   * Sanitize autodetect fields
-   *
-   * @since    1.1.0
-   * @access   public
-   */
-  public function sanitizeAutodetect($input) {
-    $valid_input = array();
-
-    if (isset($input['image'])) {
-      $valid_input['image'] = (bool)($input['image']);
-    }
-
-    if (isset($input['video'])) {
-      $valid_input['video'] = (bool)($input['video']);
-    }
-
-    if (isset($input['class_exclude'])) {
-      $valid_input['class_exclude'] = sanitize_text_field($input['class_exclude']);
-    }
-    return $valid_input;
   }
 
   /**
@@ -574,6 +625,50 @@ class EasySwipeboxAdmin {
     if (isset($input['autoplayVideos'])) {
       $valid_input['autoplayVideos'] = (bool)($input['autoplayVideos']);
     }
+    return $valid_input;
+  }
+
+  /**
+   * Sanitize autodetect fields
+   *
+   * @since    1.1.0
+   * @access   public
+   */
+  public function sanitizeAutodetect($input) {
+    $valid_input = array();
+
+    if (isset($input['image'])) {
+      $valid_input['image'] = (bool)($input['image']);
+    }
+
+    if (isset($input['video'])) {
+      $valid_input['video'] = (bool)($input['video']);
+    }
+
+    if (isset($input['class_exclude'])) {
+      $valid_input['class_exclude'] = sanitize_text_field($input['class_exclude']);
+    }
+    return $valid_input;
+  }
+
+
+  /**
+   * Sanitize advanced fields
+   *
+   * @since    1.1.0
+   * @access   public
+   */
+  public function sanitizeAdvanced($input) {
+    $valid_input = array();
+
+    if (isset($input['loadingPlace'])) {
+      $valid_input['loadingPlace'] = sanitize_text_field($input['loadingPlace']);
+    }
+
+    if (isset($input['debugMode'])) {
+      $valid_input['debugMode'] = (bool)($input['debugMode']);
+    }
+
     return $valid_input;
   }
 

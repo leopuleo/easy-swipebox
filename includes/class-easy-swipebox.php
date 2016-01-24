@@ -77,7 +77,7 @@ class EasySwipeBox {
    */
   protected $options_autodetect;
 
-   /**
+  /**
    * Lightbox options of this plugin.
    *
    * @since    1.1.0
@@ -85,6 +85,15 @@ class EasySwipeBox {
    * @var      array    $options_lightbox    The options for lightbox behaviour and appereance.
    */
   protected $options_lightbox;
+
+  /**
+   * Advanced options of this plugin.
+   *
+   * @since    1.1.0
+   * @access   protected
+   * @var      array    $options_advanced    The advanced options for the plugin.
+   */
+  protected $options_advanced;
 
   /**
    * Define the core functionality of the plugin.
@@ -104,8 +113,8 @@ class EasySwipeBox {
     // Define defaults for autodetect options
     $this->defaults_autodetect = array (
       'image' => 1,
-          'video' => 1,
-          'class_exclude' => '.no-swipebox'
+      'video' => 1,
+      'class_exclude' => '.no-swipebox'
     );
 
     // Define defaults for lightbox options
@@ -121,8 +130,15 @@ class EasySwipeBox {
           'autoplayVideos' => 0
     );
 
+    // Define defaults for advanced options
+    $this->defaults_advanced = array (
+      'loadingPlace' => 'footer',
+      'debugMode' => 0
+    );
+
     $this->options_autodetect = wp_parse_args(get_option('easySwipeBox_autodetect'), $this->defaults_autodetect);
     $this->options_lightbox = wp_parse_args(get_option('easySwipeBox_lightbox'), $this->defaults_lightbox);
+    $this->options_advanced = wp_parse_args(get_option('easySwipeBox_advanced'), $this->defaults_advanced);
 
     $this->loadDependencies();
     $this->setLocale();
@@ -202,7 +218,7 @@ class EasySwipeBox {
    */
   private function defineAdminHooks() {
 
-    $plugin_admin = new EasySwipeboxAdmin($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox(), $this->getPluginBasename());
+    $plugin_admin = new EasySwipeboxAdmin($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox(), $this->getOptionsAdvanced(), $this->getPluginBasename());
 
     $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueStyles');
     $this->loader->addAction('admin_enqueue_scripts', $plugin_admin, 'EnqueueScripts');
@@ -221,7 +237,7 @@ class EasySwipeBox {
    */
   private function definePublicHooks() {
 
-    $plugin_public = new EasySwipeBoxPublic($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox());
+    $plugin_public = new EasySwipeBoxPublic($this->getPluginName(), $this->getVersion(), $this->getOptionsAutodetect(), $this->getOptionsLightbox(), $this->getOptionsAdvanced());
 
     $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueStyles');
     $this->loader->addAction('wp_enqueue_scripts', $plugin_public, 'enqueueScripts');
@@ -296,5 +312,15 @@ class EasySwipeBox {
    */
   public function getOptionsLightbox() {
     return $this->options_lightbox;
+  }
+
+  /**
+   * Retrieve the options for advanced settings.
+   *
+   * @since     1.1.0
+   * @return    array    The options for advanced setting.
+   */
+  public function getOptionsAdvanced() {
+    return $this->options_advanced;
   }
 }
