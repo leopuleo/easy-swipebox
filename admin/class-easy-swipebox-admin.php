@@ -491,7 +491,7 @@ class EasySwipeboxAdmin {
       <ol>
         <li><?php _e('Enqueuing of SwipeBox Javascript and CSS files.', $this->plugin_name); ?></li>
         <li><?php _e('Customization of SwipeBox lightbox appereance and behaviour from the <strong>Lightbox Settings</strong> page.', $this->plugin_name); ?></li>
-        <li><?php _e('Autodetection of links to images or videos. You can exclude/include media types from the <strong>General Settings</strong> page.', $this->plugin_name); ?></li>
+        <li><?php _e('Autodetection of links to images or videos. You can exclude/include media types from the <strong>Autodetection Settings</strong> page.', $this->plugin_name); ?></li>
         <li><?php _e('Other geek settings in the <strong>Advanced Settings</strong> page.', $this->plugin_name); ?></li>
       </ol>
       <hr>
