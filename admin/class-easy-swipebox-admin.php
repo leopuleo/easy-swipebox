@@ -489,9 +489,10 @@ class EasySwipeboxAdmin {
 
       <h3><?php _e('Plugin main features', $this->plugin_name); ?></h3>
       <ol>
-        <li><?php _e('Enqueuing of SwipeBox Javascript and CSS files. Set <code>WP_DEBUG</code> to true for the uncompressed files.', $this->plugin_name); ?></li>
-        <li><?php _e('Autodetection of links to images or videos. You can exclude/include media types from the <strong>General Settings</strong> page.', $this->plugin_name); ?></li>
+        <li><?php _e('Enqueuing of SwipeBox Javascript and CSS files.', $this->plugin_name); ?></li>
         <li><?php _e('Customization of SwipeBox lightbox appereance and behaviour from the <strong>Lightbox Settings</strong> page.', $this->plugin_name); ?></li>
+        <li><?php _e('Autodetection of links to images or videos. You can exclude/include media types from the <strong>General Settings</strong> page.', $this->plugin_name); ?></li>
+        <li><?php _e('Other geek settings in the <strong>Advanced Settings</strong> page.', $this->plugin_name); ?></li>
       </ol>
       <hr>
 
@@ -501,14 +502,15 @@ class EasySwipeboxAdmin {
         <li><?php _e('Report a bug, submit pull request or new feature proposal: visit the <strong><a href="https://github.com/leopuleo/easy-swipebox" target="_blank">Github Repo</a></strong>.', $this->plugin_name); ?></li>
         <li><?php _e('Translate it in your language: visit the <strong><a href="https://translate.wordpress.org/projects/wp-plugins/easy-swipebox" target="_blank">WordPress translation page</a></strong>.', $this->plugin_name); ?></li>
         <li><?php _e('Rate it 5 stars on <strong><a href="https://wordpress.org/support/view/plugin-reviews/easy-swipebox?filter=5#postform" target="_blank">WordPress.org</a></strong>.', $this->plugin_name); ?></li>
+        <li><?php _e('<strong><a href="//paypal.me/LeonardoGiacone" target="_blank">Buy me a beer!</a></strong>', $this->plugin_name); ?></li>
+
       </ol>
       <hr>
 
       <h3><?php _e('Support', $this->plugin_name); ?></h3>
       <p><strong><?php _e('Need help?', $this->plugin_name); ?></strong>
-      <?php _e('Visit the <strong><a href="https://wordpress.org/support/plugin/easy-swipebox" target="_blank">WordPress.org support page</a></strong> or the  <strong><a href="https://github.com/leopuleo/easy-swipebox/issues" target="_blank">Github Issue Tracker</a></strong>.', $this->plugin_name); ?></p>
-      <p><strong><?php _e('Note:', $this->plugin_name); ?></strong> <?php _e('this plugin use SwipeBox jQuery plugin as Lightbox solution. For any issues or pull requests related to SwipeBox appereance or behaviour please visit the <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox Repo</a></strong>.', $this->plugin_name); ?></p>
-
+      <?php _e('Read the <strong><a href="https://wordpress.org/plugins/easy-swipebox/faq/" target="_blank">FAQ</a></strong> or visit the <strong><a href="https://wordpress.org/support/plugin/easy-swipebox" target="_blank">WordPress.org support page</a></strong> / <strong><a href="https://github.com/leopuleo/easy-swipebox/issues" target="_blank">Github Issue Tracker</a></strong>.', $this->plugin_name); ?></p>
+      <p><strong><?php _e('Note:', $this->plugin_name); ?></strong> <?php _e('this plugin use SwipeBox jQuery plugin as lightbox solution. For any issues or pull requests related to SwipeBox appereance or behaviour please visit the <strong><a href="http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin" target="_blank">SwipeBox Repo</a></strong>.', $this->plugin_name); ?></p>
     <?php
   }
 
@@ -534,9 +536,9 @@ class EasySwipeboxAdmin {
     ?>
 
     <h2 class="nav-tab-wrapper">
-        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=lightbox_options');?>" class="nav-tab <?php echo $active_tab == 'lightbox_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Lightbox Settings', $this->plugin_name); ?></a>
-        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=autodetect_options');?>" class="nav-tab <?php echo $active_tab == 'autodetect_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Autodetect Settings', $this->plugin_name); ?></a>
-        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=advanced_options');?>" class="nav-tab <?php echo $active_tab == 'advanced_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Advanced Settings', $this->plugin_name); ?></a>
+        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=lightbox_options');?>" class="nav-tab <?php echo $active_tab == 'lightbox_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Lightbox', $this->plugin_name); ?></a>
+        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=autodetect_options');?>" class="nav-tab <?php echo $active_tab == 'autodetect_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Autodetect', $this->plugin_name); ?></a>
+        <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=advanced_options');?>" class="nav-tab <?php echo $active_tab == 'advanced_options' ? 'nav-tab-active' : ''; ?>"><?php _e('Advanced', $this->plugin_name); ?></a>
         <a href="<?php echo admin_url('options-general.php?page=easy-swipebox-settings&tab=overview');?>" class="nav-tab <?php echo $active_tab == 'overview' ? 'nav-tab-active' : ''; ?>"><?php _e('Overview', $this->plugin_name); ?></a>
     </h2>
 
