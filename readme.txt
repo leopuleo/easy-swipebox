@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: LeoPeo
-Donate link: https:////paypal.me/LeonardoGiacone
+Donate link: https://paypal.me/LeonardoGiacone
 Tags: image, video, gallery, fancybox, swipebox, lightbox, images, video, responsive, mobile, vimeo, youtube
 Requires at least: 3.0.1
 Tested up to: 4.4.1
