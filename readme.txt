@@ -63,11 +63,11 @@ Visit the new admin page (Settings > Easy SwipeBox) to enable/disable the autode
 Yes, SwipeBox support inline content, here below an example:
 
 
-<blockquote><a href="#mymap" class="swipebox" title="My Map Title">Click to open the map</a>
-<div style="display: none">
-  <div id="mymap">IFRAME_MAP</div>
-</div><blockquote>
-`
+`<a href="#mymap" class="swipebox" title="My Map Title">Click to open the map</a>`
+`<div style="display: none">`
+`<div id="mymap">IFRAME_MAP</div>`
+`</div>`
+
 
 == Screenshots ==
 
