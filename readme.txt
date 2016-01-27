@@ -37,7 +37,7 @@ There are many ways to contribute to this plugin:
 1. Report a bug, submit pull request or new feature proposal: visit the [Github repo](https://github.com/leopuleo/easy-swipebox).
 2. Translate it in your language: visit the [WordPress translation page](https://translate.wordpress.org/projects/wp-plugins/easy-swipebox).
 3. Rate it 5 stars on [WordPress.org](https://wordpress.org/support/view/plugin-reviews/easy-swipebox?filter=5#postform).
-4. [Buy me a beer! :beer:](//paypal.me/LeonardoGiacone)
+4. [Buy me a beer!](//paypal.me/LeonardoGiacone)
 
 = Support =
 
@@ -62,12 +62,12 @@ Visit the new admin page (Settings > Easy SwipeBox) to enable/disable the autode
 = Can I use Easy SwipeBox to show Google Maps iFrames? =
 Yes, SwipeBox support inline content, here below an example:
 
-```
-<a href="#mymap" class="swipebox" title="My Map Title">Click to open the map</a>
+
+<blockquote><a href="#mymap" class="swipebox" title="My Map Title">Click to open the map</a>
 <div style="display: none">
   <div id="mymap">IFRAME_MAP</div>
-</div>
-```
+</div><blockquote>
+`
 
 == Screenshots ==
 
