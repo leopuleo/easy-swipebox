@@ -448,7 +448,7 @@ class EasySwipeboxAdmin {
     ?>
     <label>
       <input id="easySwipeBox_autodetect[class_exclude]" type="text" name="easySwipeBox_autodetect[class_exclude]" value="<?php echo $this->options_autodetect['class_exclude']; ?>" /><br>
-      <em><?php _e('Enter the selector that groups the media you would like to exclude from autodetection (Default: <code>.no-swipebox</code>).', $this->plugin_name); ?></em>
+      <em><?php _e('Enter the selector that groups the media you would like to exclude from autodetection. Use commas to separate multiple selectors (Default: <code>.no-swipebox</code>).', $this->plugin_name); ?></em>
     </label>
     <?php
   }

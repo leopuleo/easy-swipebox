@@ -1,7 +1,7 @@
 # Easy SwipeBox (Wordpress Plugin)
 [![Build Status](https://travis-ci.org/leopuleo/easy-swipebox.svg?branch=easy-swipebox-1.1)](https://travis-ci.org/leopuleo/easy-swipebox)
 
-Easily enable SwipeBox jQuery extension on all links to image or video (Youtube / Vimeo).
+Easily enable SwipeBox jQuery extension on all links to image or video (Youtube / Vimeo). Optimized for responsive layouts and touch devices.
 
 ## Description
 
