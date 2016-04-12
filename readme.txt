@@ -3,7 +3,7 @@ Contributors: LeoPeo
 Donate link: https://paypal.me/LeonardoGiacone
 Tags: image, video, gallery, fancybox, swipebox, lightbox, images, video, responsive, mobile, vimeo, youtube
 Requires at least: 3.0.1
-Tested up to: 4.4.1
+Tested up to: 4.5
 Stable tag: 1.1.0
 License:  GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -39,6 +39,7 @@ There are many ways to contribute to this plugin:
 3. Rate it 5 stars on [WordPress.org](https://wordpress.org/support/view/plugin-reviews/easy-swipebox?filter=5#postform).
 4. [Buy me a beer!](//paypal.me/LeonardoGiacone)
 
+
 = Support =
 
 Need help? Read the [FAQ](https://wordpress.org/plugins/easy-swipebox/faq/) or visit the [WordPress.org](https://wordpress.org/support/plugin/easy-swipebox) support page / [Github Issue Tracker](https://github.com/leopuleo/easy-swipebox/issues).
@@ -56,17 +57,18 @@ Done! Now all link to image or Youtube/Vimeo opens in a beautiful mobile-friendl
 Visit the new admin page (Settings > Easy SwipeBox) to enable/disable the autodetection for selected media type and customize the lightbox behaviour.
 
 
-
 == Frequently Asked Questions ==
 
-= Can I use Easy SwipeBox to show Google Maps iFrames? =
-Yes, SwipeBox support inline content, here below an example:
+= Can I use Easy SwipeBox to show Google Maps iframe? =
+Yes, SwipeBox support inline content, here below an example of code:
 
+First create the selector that contains the Google Maps iframe, usually it's hidden within the page:
+`<div id="mymap" style="display:none;">IFRAME_MAP</div>`
 
+Then create your link, pointing at the selector:
 `<a href="#mymap" class="swipebox" title="My Map Title">Click to open the map</a>`
-`<div style="display: none">`
-`<div id="mymap">IFRAME_MAP</div>`
-`</div>`
+
+Done! Clicking on the link, the Google Maps iframe will be showed within the lightbox.
 
 
 == Screenshots ==
@@ -74,6 +76,7 @@ Yes, SwipeBox support inline content, here below an example:
 1. Example of SwipeBox lightbox
 
 2. Easy SwipeBox setting page
+
 
 == Changelog ==
 
