@@ -544,7 +544,6 @@ class EasySwipeboxAdmin {
 
     <?php
     switch ($active_tab) {
-
       case 'lightbox_options':
         settings_fields('easySwipeBox_lightbox');
         do_settings_sections('easySwipeBox_lightbox');
@@ -605,18 +604,15 @@ class EasySwipeboxAdmin {
       $valid_input['videoMaxWidth'] = absint($input['videoMaxWidth']);
     }
     if (isset($input['vimeoColor'])) {
-
       $vimeo_color = strip_tags(stripslashes($input['vimeoColor']));
 
       //Check if is a valid hex color
       if (false === $this->checkColor($vimeo_color)) {
-
         // Set the error message
         add_settings_error('easySwipeBox_lightbox', 'easySwipebox_vimeo_error', __('Insert a valid color for Vimeo controllers', $this->plugin_name), 'error'); // $setting, $code, $message, $type
 
         // Get the previous valid value
         $valid_input['vimeoColor'] = $this->options_lightbox['vimeoColor'];
-
       } else {
         $valid_input['vimeoColor'] = $vimeo_color;
       }
