@@ -3,7 +3,7 @@ Contributors: LeoPeo
 Donate link: https://paypal.me/LeonardoGiacone
 Tags: image, video, gallery, fancybox, swipebox, lightbox, images, video, responsive, mobile, vimeo, youtube
 Requires at least: 3.0.1
-Tested up to: 4.5
+Tested up to: 4.6
 Stable tag: 1.1.0
 License:  GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
