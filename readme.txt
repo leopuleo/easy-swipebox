@@ -3,9 +3,9 @@ Contributors: LeoPeo
 Donate link: https://paypal.me/LeonardoGiacone
 Tags: image, video, gallery, fancybox, swipebox, lightbox, images, video, responsive, mobile, vimeo, youtube
 Requires at least: 3.0.1
-Tested up to: 4.9
+Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License:  GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -80,6 +80,9 @@ Done! Clicking on the link, the Google Maps iframe will be showed within the lig
 
 
 == Changelog ==
+
+= 1.1.1 - Major release (09/12/2020) =
+* Bug fix: Update SwipeBox to fix compatibiliy with jQuery 3.X.X - Check [https://github.com/mho79/swipebox](https://github.com/mho79/swipebox).
 
 = 1.1.0 - Major release (27/01/2016) =
 * New feature: Added Lightbox Setting Page. Customize the SwipeBox lightbox behaviour. Discover more about [SwipeBox options](http://brutaldesign.github.io/swipebox/?source=easy-swipebox-wp-plugin).

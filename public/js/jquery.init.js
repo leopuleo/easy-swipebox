@@ -57,7 +57,8 @@
 			loopAtEnd: easySwipeBox_localize_init_var.lightbox.loopAtEnd,
 			autoplayVideos: easySwipeBox_localize_init_var.lightbox.autoplayVideos,
 			queryStringData: {},
-			toggleClassOnLoad: ''
+			toggleClassOnLoad: '',
+			selector: null
 		} );
 
 	});
