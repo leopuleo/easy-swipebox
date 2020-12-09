@@ -11,7 +11,7 @@
  * Plugin Name: Easy SwipeBox
  * Plugin URI: https://github.com/leopuleo
  * Description: Easily enable <a href="http://brutaldesign.github.io/swipebox/">SwipeBox jQuery extension</a> on all links to image or video (Youtube / Vimeo). Optimized for responsive layouts and touch devices.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author: Leonardo Giacone
  * Author URI: https://github.com/leopuleo
  * License:           GPL-2.0+
