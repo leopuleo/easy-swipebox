@@ -5,7 +5,7 @@ Tags: image, video, gallery, fancybox, swipebox, lightbox, images, video, respon
 Requires at least: 3.0.1
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License:  GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -80,6 +80,9 @@ Done! Clicking on the link, the Google Maps iframe will be showed within the lig
 
 
 == Changelog ==
+
+= 1.1.2 - Major release (26/02/2021) =
+* Bug fix: Update SwipeBox to fix compatibiliy with jQuery 3.X.X - Use original SwipeBox jQuery plugin 1.5.2 - Check [https://github.com/brutaldesign/swipebox](https://github.com/brutaldesign/swipebox).
 
 = 1.1.1 - Major release (09/12/2020) =
 * Bug fix: Update SwipeBox to fix compatibiliy with jQuery 3.X.X - Check [https://github.com/mho79/swipebox](https://github.com/mho79/swipebox).

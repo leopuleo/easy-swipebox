@@ -107,7 +107,7 @@ class EasySwipeBox {
   public function __construct() {
 
     $this->plugin_name = 'easy-swipebox';
-    $this->version = '1.1.1';
+    $this->version = '1.1.2';
     $this->plugin_basename = plugin_basename(plugin_dir_path(__DIR__) . $this->plugin_name . '.php');
 
     // Define defaults for autodetect options
