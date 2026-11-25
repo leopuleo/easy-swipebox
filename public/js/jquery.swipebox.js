@@ -744,7 +744,7 @@
 
         if (title) {
           $("#swipebox-top-bar").show();
-          $("#swipebox-title").append(title);
+          $("#swipebox-title").text(title);
         } else {
           $("#swipebox-top-bar").hide();
         }
@@ -854,10 +854,15 @@
             qs +
             '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
         } else {
-          iframe =
-            '<iframe width="560" height="315" src="' +
-            url +
-            '" frameborder="0" allowfullscreen></iframe>';
+          iframe = $("<iframe>")
+            .attr({
+              width: "560",
+              height: "315",
+              src: url,
+              frameborder: "0",
+              allowfullscreen: "",
+            })
+            .prop("outerHTML");
         }
 
         return (

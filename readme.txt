@@ -5,7 +5,7 @@ Tags: image, video, gallery, fancybox, swipebox, lightbox, images, video, respon
 Requires at least: 3.0.1
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License:  GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -80,6 +80,10 @@ Done! Clicking on the link, the Google Maps iframe will be showed within the lig
 
 
 == Changelog ==
+
+= 1.1.3 - Security release (25/11/2026) =
+* Security fix: Lightbox captions are now inserted as plain text, preventing stored XSS via the title attribute of auto-detected image links (e.g. in comments).
+* Security fix: The iframe for generic video links is now built safely, preventing attribute injection via the link URL.
 
 = 1.1.2 - Major release (26/02/2021) =
 * Bug fix: Update SwipeBox to fix compatibiliy with jQuery 3.X.X - Use original SwipeBox jQuery plugin 1.5.2 - Check [https://github.com/brutaldesign/swipebox](https://github.com/brutaldesign/swipebox).
